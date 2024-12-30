@@ -1,0 +1,52 @@
+body {
+    font-family: 'Trebuchet MS', Arial;
+    width: 75%;
+}
+
+/*Main page titles*/
+h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #252525;
+}
+
+/*Secondary page titles*/
+h1.secondary {
+    font-size: 42px;
+    font-weight: 800;
+    color: #F86D11;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #252525;
+}
+
+/*Section titles*/
+h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #252525;
+}
+
+/*Secondary section titles*/
+h3.secondary {
+    font-size: 28px;
+    font-weight: 600;
+    color: #F86D11;
+}
+
+/*Subsection titles*/
+h4 {
+    font-size: 22px;
+    color: #252525;
+}
+
+/*Standard body and paragraph texts*/
+p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #252525;
+    line-height: 1.6;
+}
