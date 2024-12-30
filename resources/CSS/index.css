@@ -1,16 +1,23 @@
 body {
     font-family: 'Trebuchet MS', Arial;
-    width: 75%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/*Main page titles*/
+.content-wrapper {
+    text-align: center;
+    width: 50%;
+}
+
 h1 {
     font-size: 42px;
     font-weight: 800;
     color: #252525;
 }
 
-/*Secondary page titles*/
 h1.secondary {
     font-size: 42px;
     font-weight: 800;
@@ -23,27 +30,23 @@ h2 {
     color: #252525;
 }
 
-/*Section titles*/
 h3 {
     font-size: 28px;
     font-weight: 600;
     color: #252525;
 }
 
-/*Secondary section titles*/
 h3.secondary {
     font-size: 28px;
     font-weight: 600;
     color: #F86D11;
 }
 
-/*Subsection titles*/
 h4 {
     font-size: 22px;
     color: #252525;
 }
 
-/*Standard body and paragraph texts*/
 p {
     font-size: 18px;
     font-weight: 500;
@@ -53,12 +56,9 @@ p {
 
 .header-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-}
-
-.header-container h2 {
-    margin: 0;
+    margin-bottom: 20px;
 }
 
 .header-container img {
