@@ -4,6 +4,8 @@
 <head>
   <link rel="stylesheet" href="./resources/CSS/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./resources/js/main.js"></script>
+  <script src="./resources/js/formHandler.js" defer></script>
 </head>
 
 <body>
@@ -18,7 +20,6 @@
           Deel het hieronder. Waardeer het oprecht!
         </p>
         
-        <!-- Remove 'action' and 'method' so it doesn't POST to /index.html -->
         <form class="give-feedback-form" id="feedbackForm">
           <div class="input-group">
             <label class="input-name" for="naam">Naam</label>
@@ -61,7 +62,6 @@
     </div>
 
     <!-- Popup for requesting a MoveRoof listing -->
-    <!-- If you also want to handle listing form via JavaScript, remove action/method here too -->
     <div id="request-listing-popup" class="hidden">
       <h3 class="secondary">Gratis je woning op MoveRoof</h3>
       <div>

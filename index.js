@@ -1,3 +1,6 @@
+//Link to Environment Variables File
+require('dotenv').config();
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -34,14 +37,14 @@ app.post('/submit-feedback', (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'feikeleemkuil@gmail.com',
-            pass: 'pide cjyl xkwd vekg',
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
         },
     });
 
     const mailOptions = {
-        from: 'feikeleemkuil@gmail.com',
-        to: 'feikeleemkuil@gmail.com',
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
         subject: `Feedback from ${naam || 'Anonymous'}`,
         text: `Naam: ${naam || 'Not provided'}\nEmail: ${email || 'Not provided'}\nFeedback: ${bericht || 'No message'}`,
     };
@@ -63,14 +66,14 @@ app.post('/submit-request', (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'feikeleemkuil@gmail.com',
-            pass: 'pide cjyl xkwd vekg',
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
         },
     });
 
     const mailOptions = {
-        from: 'feikeleemkuil@gmail.com',
-        to: 'feikeleemkuil@gmail.com',
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
         subject: `Listing Request from ${naam || 'Anonymous'}`,
         text: `Naam: ${naam || 'Not provided'}\nEmail: ${email || 'Not provided'}\nTelefoon: ${telefoon || 'Not provided'}\nAdres: ${adres || 'Not provided'}`,
     };
@@ -94,14 +97,14 @@ app.post('/submit-interest', (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'feikeleemkuil@gmail.com',
-            pass: 'pide cjyl xkwd vekg',
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
         },
     });
 
     const mailOptions = {
-        from: 'feikeleemkuil@gmail.com',
-        to: 'feikeleemkuil@gmail.com',
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
         subject: `Listing interest inquiry ${listingInfo}`,
         text: `Listing: ${listingInfo}\nNaam: ${naam || 'Not provided'}\nEmail: ${email || 'Not provided'}\nTelefoon: ${telefoon || 'Not provided'}\nBericht: ${bericht || 'No message'}`,
     };

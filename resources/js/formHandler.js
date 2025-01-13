@@ -114,3 +114,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Feedback Form Submission
+const feedbackForm = document.getElementById('feedbackForm');
+feedbackForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(feedbackForm);
+  const data = Object.fromEntries(formData);
+
+  try {
+    const response = await fetch('https://moveroofgithubio-production.up.railway.app/submit-feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      // Show thank-you popup
+      document.getElementById('give-feedback-popup').classList.add('hidden');
+      document.getElementById('thankyou-feedback-popup').classList.remove('hidden');
+    } else {
+      alert('Feedback submission failed. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error submitting feedback:', error);
+    alert('An error occurred. Please try again.');
+  }
+});
+
+// Listing Request Form Submission
+const listingForm = document.getElementById('listingForm');
+listingForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(listingForm);
+  const data = Object.fromEntries(formData);
+
+  try {
+    const response = await fetch('https://moveroofgithubio-production.up.railway.app/submit-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      // Show thank-you popup
+      document.getElementById('request-listing-popup').classList.add('hidden');
+      document.getElementById('thankyou-listing-request-popup').classList.remove('hidden');
+    } else {
+      alert('Listing request submission failed. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error submitting listing request:', error);
+    alert('An error occurred. Please try again.');
+  }
+});
