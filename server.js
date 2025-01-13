@@ -4,13 +4,39 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors'); // Import the cors package
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware to parse form data (URL encoded and JSON)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// CORS configuration
+const allowedOrigins = [
+    'https://feikemr.github.io', // GitHub Pages frontend
+    'http://127.0.0.1:5500',     // Live Server for local testing
+    'http://localhost:3000'      // Localhost for local testing
+];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
+
+// Serve static files (e.g., CSS, JS, images) from the root directory
+app.use(express.static(path.join(__dirname)));
+
+// Handle root path
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
