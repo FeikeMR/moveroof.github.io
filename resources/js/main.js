@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const popupsHTML = await response.text();
       popupsContainer.innerHTML = popupsHTML;
 
-      console.log("Popups loaded successfully.");
       initializePopups();
   } catch (err) {
       console.error("Error loading popups:", err);
@@ -93,7 +92,6 @@ function setupFormHandler(form, endpoint, popupId, thankYouPopupId) {
           });
 
           if (response.ok) {
-              console.log("Form submitted successfully.");
 
               // Hide the current popup and show the thank-you popup
               if (popup) hidePopup(popup);
@@ -234,8 +232,6 @@ document.addEventListener("DOMContentLoaded", function () {
           retryIfNeeded();
           return;
       }
-
-      console.log("Popups found. Attaching event listeners.");
 
       // Show popup
       function showPopup(popup) {

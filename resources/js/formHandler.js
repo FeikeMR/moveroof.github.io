@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Feedback form logic
     const feedbackForm = document.getElementById('feedbackForm');
     if (feedbackForm) {
-        console.log('Feedback form found.');
 
         feedbackForm.addEventListener('submit', async function (event) {
             event.preventDefault();
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(feedbackForm);
 
             try {
-                const response = await fetch('/submit-feedback', {
+                const response = await fetch('https://moveroofgithubio-production.up.railway.app/submit-feedback', {
                     method: 'POST',
                     body: new URLSearchParams(formData),
                     headers: {
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    console.log('Feedback submitted successfully.');
             
                     // Hide feedback popup
                     const feedbackPopup = document.getElementById('give-feedback-popup');
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Request listing form logic
     const listingForm = document.querySelector('.listing-interest-form');
     if (listingForm) {
-        console.log('Request listing form found.');
 
         listingForm.addEventListener('submit', async function (event) {
             event.preventDefault();
@@ -57,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    console.log('Listing request submitted successfully.');
 
                     // Hide listing popup
                     const listingPopup = document.getElementById('request-listing-popup');
@@ -83,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const thankYouDiv = document.getElementById('listing-interest-thankyou');
 
     if (listingInterestForm) {
-        console.log('Listing interest form found.');
 
         listingInterestForm.addEventListener('submit', async function (event) {
             event.preventDefault();
@@ -100,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    console.log('Listing interest inquiry submitted successfully.');
 
                     // Hide the form and show the thank-you message
                     listingInterestDiv.style.display = 'none';
