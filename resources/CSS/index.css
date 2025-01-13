@@ -542,7 +542,6 @@ p.detail {
         justify-content: center;
         align-items: center;
         position: relative;
-        margin-top: 7vh;
         min-height: 80vh;
         height: auto;
         max-height: 92vh;
@@ -701,7 +700,7 @@ p.detail {
 
 #seperation-line-vert {
     height: 70%;
-    border: 0.5px solid #787878;
+    border: 0.4px solid #787878;
 }
 
 #listing-overview, .listing-tile {
@@ -780,9 +779,6 @@ p.detail {
 ============================ */
 
 @media (max-width: 768px) {
-     #overview-topbar {
-        margin-top: 8vh;
-     }   
     
     #listing-overview {
         display: grid;
@@ -795,6 +791,9 @@ p.detail {
         margin: 0 auto;
     }
     
+    .listing-tile{
+        width: 100%;
+    }
 
     .listing-tile-data {
         justify-content: space-evenly;
@@ -1214,7 +1213,6 @@ p.detail {
 
 @media (max-width: 768px) {
     .listing-hero{
-        margin-top: 60px;
         height: 60vh;
         width: 100%;
         position: relative;
@@ -1253,6 +1251,7 @@ p.detail {
         width: 100%;
         display: row;
         gap: 13px;
+        padding: 0% 0% 0.5% 0%;
         justify-content: center;
         align-items: center;
     }
@@ -1272,18 +1271,19 @@ p.detail {
 
     .listing-hero-data-point-row h5 {
         font-weight: 400;
+        font-size: 16px;
     }
 
     .listing-hero-address h4.secondary {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     #listing-hero-street {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     #listing-hero-price {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .scroll-prompt, #view-listing-images {

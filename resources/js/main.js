@@ -79,20 +79,20 @@ function initializePopups() {
 function setupFormHandler(form, endpoint, popupId, thankYouPopupId) {
   const popup = document.getElementById(popupId);
   const thankYouPopup = document.getElementById(thankYouPopupId);
+  const BASE_URL = 'https://moveroofgithubio-production.up.railway.app';
 
   form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
 
       try {
-          const response = await fetch(endpoint, {
+          const response = await fetch(`${BASE_URL}${endpoint}`, {
               method: 'POST',
               body: new URLSearchParams(formData),
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           });
 
           if (response.ok) {
-
               // Hide the current popup and show the thank-you popup
               if (popup) hidePopup(popup);
               if (thankYouPopup) showPopup(thankYouPopup);
@@ -107,6 +107,7 @@ function setupFormHandler(form, endpoint, popupId, thankYouPopupId) {
       }
   });
 }
+
 
 function showPopup(popup) {
   const overlay = document.getElementById('popup-overlay');
