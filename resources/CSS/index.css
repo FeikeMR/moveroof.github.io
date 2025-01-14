@@ -28,7 +28,7 @@ section {
 
 @media (max-width: 768px) {
     .section {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -604,6 +604,7 @@ p.detail {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 90%;
     }
     
     .single-column {
@@ -622,14 +623,15 @@ p.detail {
         align-items: center;
         justify-content: center;
         gap: 20px;
+        width: 90%;
     }
 
     .FAQ > div:first-child {
-        width: 90%;
+        width: 95%;
     }
     
     .FAQ > div.FAQ-questions {
-        width: 90%;
+        width: 95%;
     }
     
     #FAQ-img {
