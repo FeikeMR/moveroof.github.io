@@ -142,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const feedbackPopup = document.getElementById('give-feedback-popup');
 
       if (!listingBtn || !feedbackBtn || !listingPopup || !feedbackPopup) {
-          console.warn("Popup elements not found. Retrying...");
           setTimeout(initPopupLogic, 200);
           return;
       }

@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 // CORS config
 const allowedOrigins = [
+    'https://www.moveroof.com', //MoveRoof website
     'https://moveroof.com', //MoveRoof website
     'https://feikemr.github.io', //Github repo
     'https://moveroofgithubio-production.up.railway.app', //Railway app
@@ -24,13 +25,14 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
+      console.log('CORS got origin:', origin); // Debug logging
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Not allowed by CORS for origin: ${origin}`));
+      }
     }
-}));
+  }));
 
 // Serve static files (e.g., CSS, JS, images) from the root directory
 app.use(express.static(path.join(__dirname)));
