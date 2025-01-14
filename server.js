@@ -4,7 +4,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
-const cors = require('cors'); // Import the cors package
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,11 +13,12 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// CORS configuration
+// CORS config
 const allowedOrigins = [
-    'https://feikemr.github.io', // GitHub Pages frontend
-    'http://127.0.0.1:5500',     // Live Server for local testing
-    'http://localhost:3000'      // Localhost for local testing
+    'https://feikemr.github.io',
+    'https://moveroofgithubio-production.up.railway.app',
+    'http://127.0.0.1:5500', // Live Server from the VSCode extension
+    'http://localhost:3000'
 ];
 
 app.use(cors({
