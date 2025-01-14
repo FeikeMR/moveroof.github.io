@@ -15,10 +15,11 @@ app.use(bodyParser.json());
 
 // CORS config
 const allowedOrigins = [
-    'https://feikemr.github.io',
-    'https://moveroofgithubio-production.up.railway.app',
+    'https://moveroof.com', //MoveRoof website
+    'https://feikemr.github.io', //Github repo
+    'https://moveroofgithubio-production.up.railway.app', //Railway app
     'http://127.0.0.1:5500', // Live Server from the VSCode extension
-    'http://localhost:3000'
+    'http://localhost:3000' //Local host for testing before prod
 ];
 
 app.use(cors({
