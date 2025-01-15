@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
+
 //Pop ups open/close forms
 document.addEventListener('DOMContentLoaded', () => {
   initializePopups();
@@ -218,8 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       function retryIfNeeded() {
-          if (retryCount < 10) {  // Limit retries to 10 attempts
-              console.warn("Popup elements not found. Retrying...");
+          if (retryCount < 3) {
               retryCount++;
               setTimeout(initPopupLogic, 500);
           } else {
@@ -304,7 +304,6 @@ document.querySelectorAll('.FAQ-question h6').forEach(question => {
 
 
 //Listing detail page styling.
-
 document.addEventListener('DOMContentLoaded', () => {
   // Hero Section Image Rotation Logic
   const heroImages = document.querySelectorAll('.listing-hero-images .hero-image');
