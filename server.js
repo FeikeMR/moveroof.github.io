@@ -102,7 +102,13 @@ app.post('/submit-feedback', contactFormLimiter, (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 // Listing request form POST
+=======
+// ──────────────────────────────────────────────
+//   2) LISTING REQUEST FORM: POST /submit-request
+// ──────────────────────────────────────────────
+>>>>>>> b30cbfd (all pages main.js deferred, icon fixes, and form validation plus rate limits)
 app.post('/submit-request', contactFormLimiter, (req, res) => {
   const { naam, email, telefoon, adres } = req.body;
   console.log('Request listing request received:', req.body);
@@ -138,7 +144,13 @@ app.post('/submit-request', contactFormLimiter, (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 // Listing interest form POST
+=======
+// ──────────────────────────────────────────────
+//   3) LISTING INTEREST FORM: POST /submit-interest
+// ──────────────────────────────────────────────
+>>>>>>> b30cbfd (all pages main.js deferred, icon fixes, and form validation plus rate limits)
 app.post('/submit-interest', contactFormLimiter, (req, res) => {
   const { naam, email, telefoon, bericht, listingInfo } = req.body;
   console.log('Listing interest inquiry received:', req.body);

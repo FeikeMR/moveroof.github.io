@@ -108,7 +108,7 @@ section {
         gap: 5px;
     }
 
-    #header-page-nav .nav-button{
+    .secondary-nav-button{
         padding: 2px 2px;
         font-size: 16px;
     }
