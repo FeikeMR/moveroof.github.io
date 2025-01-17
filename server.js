@@ -20,7 +20,15 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(cors({ origin: '*' }));
+// CORS config
+const allowedOrigins = [
+  'https://www.moveroof.com',
+  'https://moveroof.com',
+  'https://feikemr.github.io',
+  'https://moveroofgithubio-production.up.railway.app',
+  'http://127.0.0.1:5500',
+  'http://localhost:8080',
+];
 
 // Serve static files (if needed)
 app.use(express.static(path.join(__dirname)));
