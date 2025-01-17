@@ -27,8 +27,19 @@ const allowedOrigins = [
   'https://feikemr.github.io',
   'https://moveroofgithubio-production.up.railway.app',
   'http://127.0.0.1:5500',
-  'http://localhost:8080',
+  'http://localhost:8080'
 ];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    console.log('CORS got origin:', origin); // Debug logging
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`Not allowed by CORS for origin: ${origin}`));
+    }
+  }
+}));
 
 // Serve static files (if needed)
 app.use(express.static(path.join(__dirname)));
