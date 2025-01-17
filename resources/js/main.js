@@ -62,7 +62,7 @@ function initializePopups() {
   if (listingForm) {
       setupFormHandler(
           listingForm,
-          '/submit-request',
+          '/submit-listing-request',
           'request-listing-popup',
           'thankyou-listing-request-popup'
       );

@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupFormHandler(
         '.listing-request-form',
-        `${API_BASE_URL}/submit-request`,
+        `${API_BASE_URL}/submit-listing-request`,
         () => {
             const listingPopup = document.getElementById('request-listing-popup');
             const thankYouPopup = document.getElementById('thankyou-listing-request-popup');
