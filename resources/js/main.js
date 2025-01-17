@@ -199,6 +199,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+//Hide show function for labels and placeholders in forms
+
+
 
 //Setting up forms for NodeMailer
 document.addEventListener("DOMContentLoaded", function () {
@@ -496,8 +499,6 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', toggleVisibility);
 });
 
-
-
   // Sticky scroll listing interest form
   window.addEventListener('scroll', function() {
     const listingInterest = document.querySelector('.listing-interest');
@@ -507,10 +508,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const offsetTop = description.offsetTop + description.offsetHeight;
     const stopPoint = listingDetailContent.offsetTop + listingDetailContent.offsetHeight - listingInterest.offsetHeight;
     const scrollY = window.scrollY || window.pageYOffset;
-
-    // Calculate parent sticky scroll element width
-    const parentWidth = listingInterest.parentElement.offsetWidth;
-    listingInterest.style.width = parentWidth + 'px';
 
     if (scrollY >= offsetTop && scrollY < stopPoint) {
         listingInterest.classList.add('sticky-active');
