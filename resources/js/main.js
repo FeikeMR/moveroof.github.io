@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializePopups() {
   const feedbackForm = document.getElementById('feedbackForm');
-  const listingForm = document.querySelector('.listing-interest-form');
+  const listingForm = document.querySelector('.listing-request-form');
 
   if (feedbackForm) {
       setupFormHandler(

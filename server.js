@@ -20,26 +20,7 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// CORS config
-const allowedOrigins = [
-  'https://www.moveroof.com',
-  'https://moveroof.com',
-  'https://feikemr.github.io',
-  'https://moveroofgithubio-production.up.railway.app',
-  'http://127.0.0.1:5500',
-  'http://localhost:3000'
-];
-
-app.use(cors({
-  origin: (origin, callback) => {
-    console.log('CORS got origin:', origin); // Debug logging
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`Not allowed by CORS for origin: ${origin}`));
-    }
-  }
-}));
+app.use(cors({ origin: '*' }));
 
 // Serve static files (if needed)
 app.use(express.static(path.join(__dirname)));
