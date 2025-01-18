@@ -2,7 +2,7 @@
 <html>
   
 <head>
-  <title>Huis te koop: Voorbeeldstraat 262 Amersfoort - MoveRoof</title>
+  <title>Huis te koop: ADRES - MoveRoof</title>
   <link rel="icon" href="/resources/images/logos/icons/logo-icon-orange.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../resources/CSS/index.css">
@@ -27,20 +27,20 @@
   <!-- Hero section -->
   <section class="listing-hero">
     <div class="listing-hero-images">
-      <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 0.jpg" alt="Hero image listing 1 active" class="hero-image active">
-      <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 1.jpg" alt="Hero image 2" class="hero-image">
-      <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 2.jpg" alt="Hero image 3" class="hero-image">
-      <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 3.jpg" alt="Hero image 4" class="hero-image">
-      <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 4.jpg" alt="Hero image 5" class="hero-image">
-      <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 5.jpg" alt="Hero image 6" class="hero-image">
+      <img src="../asdf" alt="Hero image listing 1 active" class="hero-image active">
+      <img src="../asdf" alt="Hero image 2" class="hero-image">
+      <img src="../asdf" alt="Hero image 3" class="hero-image">
+      <img src="../asdf" alt="Hero image 4" class="hero-image">
+      <img src="../asdf" alt="Hero image 5" class="hero-image">
+      <img src="../asdf" alt="Hero image 6" class="hero-image">
     </div>
     <div class="listing-hero-container">
       <div class="listing-hero-details">
         <div class="listing-hero-address">
-          <h4 class="secondary">Amersfoort - voorbeeld</h4>
+          <h4 class="secondary">STAD</h4>
           <div class="listing-hero-city-price">
-            <h2 id="listing-hero-street">Voorbeeldstraat 262</h2>
-            <h2 id="listing-hero-price">€950.000 k.k.</h2>
+            <h2 id="listing-hero-street">STRAAT</h2>
+            <h2 id="listing-hero-price">€PRIJS k.k.</h2>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
           <h6>Slaapkamers</h6>
           <div class="listing-hero-data-point-row">
             <img src="../resources/images/icons/bed-icon.svg" alt="bedroom icon">
-            <h5>3</h5>
+            <h5>SLAAPKAMERS</h5>
           </div>
         </div>
         <div id="seperation-line-vert"></div>
@@ -57,7 +57,7 @@
           <h6>Badkamers</h6>
           <div class="listing-hero-data-point-row">
             <img src="../resources/images/icons/bath-icon.svg" alt="bedroom icon">
-            <h5>1.5</h5>
+            <h5>BADKAMER</h5>
           </div>
         </div>
         <div id="seperation-line-vert"></div>
@@ -65,7 +65,7 @@
           <h6>Woon Opp.</h6>
           <div class="listing-hero-data-point-row">
             <img src="../resources/images/icons/floorplan-icon.svg" alt="bedroom icon">
-            <h5>144m&sup2;</h5>
+            <h5>VIERKANTEMETERS&sup2;</h5>
           </div>
         </div>
         <div id="seperation-line-vert"></div>
@@ -73,7 +73,7 @@
           <h6>Energielabel</h6>
           <div class="listing-hero-data-point-row">
             <img src="../resources/images/icons/leaf-icon.svg" alt="bedroom icon">
-            <h5>A+++</h5>
+            <h5>ENERGIELABEL</h5>
           </div>
         </div>
       </div>
@@ -99,17 +99,28 @@
   </div>
 
   <div id="popup-hidden-images">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 0.jpg" alt="Image 1">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 1.jpg" alt="Image 2">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 2.jpg" alt="Image 3">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 3.jpg" alt="Image 4">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 4.jpg" alt="Image 5">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 5.jpg" alt="Image 6">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 6.jpg" alt="Image 7">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 7.jpg" alt="Image 8">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 8.jpg" alt="Image 9">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 9.jpg" alt="Image 10">
-    <img src="../resources/images/listing images/Stadsring Amersfoort/Stadsring listing image 10.jpg" alt="Image 11">
+    <img src="../" alt="Image 1">
+    <img src="../" alt="Image 2">
+    <img src="../" alt="Image 3">
+    <img src="../" alt="Image 4">
+    <img src="../" alt="Image 5">
+    <img src="../" alt="Image 6">
+    <img src="../" alt="Image 7">
+    <img src="../" alt="Image 8">
+    <img src="../" alt="Image 9">
+    <img src="../" alt="Image 10">
+    <img src="../" alt="Image 11">
+    <img src="../" alt="Image 12">
+    <img src="../" alt="Image 13">
+    <img src="../" alt="Image 14">
+    <img src="../" alt="Image 15">
+    <img src="../" alt="Image 16">
+    <img src="../" alt="Image 17">
+    <img src="../" alt="Image 18">
+    <img src="../" alt="Image 19">
+    <img src="../" alt="Image 20">
+    <img src="../" alt="Image 21">
+    <img src="../" alt="Image 22">
   </div>
 </section>
 
@@ -118,16 +129,16 @@
 
     <!-- Listing description mobile -->
     <div class="listing-description-mobile">
-      <h4>Monumentale Villa "Rusthof" aan de Stadsring, Amersfoort</h4>
-      <p>Stap binnen in de tijdloze elegantie van Villa "Rusthof", een rijksmonument gelegen aan de Stadsring 262 in Amersfoort. Deze vrijstaande woning uit het midden van de 19e eeuw combineert historische charme met modern wooncomfort.</p>
+      <h4>TITEL</h4>
+      <p>PARAGRAAF1.</p>
       <div id="show-description-mobile" class="show-description">
         <img src="../resources/images/icons/chevron-down.svg" alt="chevron down"> 
         <p class="secondary">Volledige beschrijving tonen</p>
       </div>
-      <p>Na een drukke werkdag wandelt u door het sfeervolle centrum van Amersfoort, langs de grachten en historische panden. Bij thuiskomst parkeert u onder de ruime carport met plaats voor drie auto's. De visgraat laminaatvloer in de woonkamer straalt warmte en luxe uit, terwijl de vloerverwarming in de keuken en woonkamer zorgt voor een behaaglijk gevoel. In de moderne keuken bereidt u met gemak een diner voor vrienden, waarna u samen geniet in de ruime eetkamer met zicht op de zuidelijk gelegen tuin.</p>
-      <p>Gelegen in de wijk Stadskern, biedt deze villa het beste van twee werelden: de levendigheid van het stadscentrum en de rust van een groene omgeving. Op loopafstand vindt u diverse winkels, restaurants en culturele voorzieningen. De nabijheid van het centraal station en uitvalswegen maakt de locatie bijzonder aantrekkelijk voor zowel gezinnen als professionals.</p>
-      <p>De woning beschikt over een woonoppervlakte van 144 m², verdeeld over drie woonlagen met in totaal zeven kamers, waaronder vier slaapkamers en twee werkkamers, ideaal voor thuiswerken of hobby's. Met 2,5 badkamers, waaronder een moderne badkamer met inloopdouche en dubbele wastafel, biedt de villa volop comfort. De keuken is voorzien van hoogwaardige inbouwapparatuur en de woning heeft energielabel A++, mede dankzij de warmtepomp en uitstekende isolatie. De serre met glazen lessenaarsdak en de historische details, zoals gestucte plafonds en originele vouwblinden, voegen extra karakter toe aan deze unieke woning.</p>
-      <p>Bent u klaar om de unieke charme van Villa "Rusthof" zelf te ervaren? Neem vandaag nog contact op met de verkopende makelaar voor meer informatie of om een bezichtiging te plannen. Mis deze kans niet om eigenaar te worden van een stukje Amersfoortse geschiedenis gecombineerd met modern wooncomfort.</p>
+      <p>PARAGRAAF2.</p>
+      <p>PARAGRAAF3.</p>
+      <p>PARAGRAAF4.</p>
+      <p>PARAGRAAF5.</p>
       <div id="hide-description-mobile" class="hide-description">
         <img src="../resources/images/icons/chevron-up.svg" alt="chevron up"> 
         <p class="secondary">Beschrijving inklappen</p>
@@ -145,12 +156,12 @@
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Vraagprijs</p>
-        <p>€950.000 k.k.</p>
+        <p>€PRIJS k.k.</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Vraagprijs/m&sup2;</p>
-        <p>€6.597</p>
+        <p>€PRIJS/M</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
@@ -171,32 +182,32 @@
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Soort woning</p>
-        <p>Vrijstaand huis</p>
+        <p>TYPE HUIS</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Bouwjaar</p>
-        <p>2012</p>
+        <p>BOUWJAAR</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Soort dak</p>
-        <p>nader aan te vullen</p>
+        <p>SOORT DAK</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Fundering</p>
-        <p>nader aan te vullen</p>
+        <p>SOORT FUNDERING</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Isolate</p>
-        <p>nader aan te vullen</p>
+        <p>WAAR ISOLATIE</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Type glas</p>
-        <p>nader aan te vullen</p>
+        <p>TYPE GLAS</p>
       </div>
       <div id="seperation-line-horiz"></div>
     </div>
@@ -207,42 +218,42 @@
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Woon oppervlakten</p>
-        <p>144m&sup2;</p>
+        <p>WOONOPP&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Gebouwbebonden buitenruimte</p>
-        <p>55m&sup2;</p>
+        <p>BUITENOPP&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Overige inpandige ruimte</p>
-        <p>22m&sup2;</p>
+        <p>INPANDIGOPP&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Externe bergruimte</p>
-        <p>33m&sup2;</p>
+        <p>BERGRUIMTE&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Perceel</p>
-        <p>125m&sup2;</p>
+        <p>PERCEEL&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Inhoud</p>
-        <p>520m&sup3;</p>
+        <p>INHOUD&sup3;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Tuin</p>
-        <p>Ligging: zuidelijk, 520m&sup3;</p>
+        <p>LIGGING EN OPP&sup3;</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Garage</p>
-        <p>Carport, 3 auto's</p>
+        <p>TYPE EN CAPACITEIT</p>
       </div>
       <div id="seperation-line-horiz"></div>
     </div>
@@ -253,42 +264,42 @@
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Aantal kamers</p>
-        <p>7</p>
+        <p>AANTAL KAMERS</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Aantal slaapkamers</p>
-        <p>4</p>
+        <p>AANTAL SLAAPKAMERS</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Aantal badkamers</p>
-        <p>2.5</p>
+        <p>AANTAL BADKAMERS</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Badkamervoorzieningen</p>
-        <p>nader aan te vullen</p>
+        <p>BADKAMER VOORZIENINGEN</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Keukenapparatuur</p>
-        <p>nader aan te vullen</p>
+        <p>KEUKENAPPARATUUR</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Vloertype</p>
-        <p>Visgraat laminaat</p>
+        <p>TYPE VLOER</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Aantal woonlagen</p>
-        <p>3</p>
+        <p>AANTAL WOONLAGEN</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Werk- of hobby ruimte?</p>
-        <p>Ja, 2 kantoortjes</p>
+        <p>KANTOORTJES HOEVEEL</p>
       </div>
       <div id="seperation-line-horiz"></div>
     </div>
@@ -299,32 +310,32 @@
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Energielabel</p>
-        <p>A++</p>
+        <p>ENERGIELABEL</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Warmtepomp</p>
-        <p>Ja, model</p>
+        <p>JA/NEE MODEL</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Vloerverwarming</p>
-        <p>Ja, keuken</p>
+        <p>JA/NEE WAAR</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Warm water</p>
-        <p>nader aan te vullen</p>
+        <p>HOE WARM WATER</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">Verwarming</p>
-        <p>nader aan te vullen</p>
+        <p>HOE VERWARMING</p>
       </div>
       <div id="seperation-line-horiz"></div>
       <div class="listing-data-row">
         <p class="name">CV Ketel</p>
-        <p>Nader aan te vullen</p>
+        <p>TYPE EN MODEL</p>
       </div>
       <div id="seperation-line-horiz"></div>     
     </div>            
@@ -335,16 +346,16 @@
 
     <!-- Listing description desktop -->
     <div class="listing-description-desktop">
-      <h4>Monumentale Villa "Rusthof" aan de Stadsring, Amersfoort</h4>
-      <p>Stap binnen in de tijdloze elegantie van Villa "Rusthof", een rijksmonument gelegen aan de Stadsring 262 in Amersfoort. Deze vrijstaande woning uit het midden van de 19e eeuw combineert historische charme met modern wooncomfort.</p>
+      <h4>TITEL</h4>
+      <p>PARAGRAAF1.</p>
       <div id="show-description-desktop" class="show-description">
         <img src="../resources/images/icons/chevron-down.svg" alt="chevron down"> 
         <p class="secondary">Volledige beschrijving tonen</p>
       </div>
-      <p>Na een drukke werkdag wandelt u door het sfeervolle centrum van Amersfoort, langs de grachten en historische panden. Bij thuiskomst parkeert u onder de ruime carport met plaats voor drie auto's. De visgraat laminaatvloer in de woonkamer straalt warmte en luxe uit, terwijl de vloerverwarming in de keuken en woonkamer zorgt voor een behaaglijk gevoel. In de moderne keuken bereidt u met gemak een diner voor vrienden, waarna u samen geniet in de ruime eetkamer met zicht op de zuidelijk gelegen tuin.</p>
-      <p>Gelegen in de wijk Stadskern, biedt deze villa het beste van twee werelden: de levendigheid van het stadscentrum en de rust van een groene omgeving. Op loopafstand vindt u diverse winkels, restaurants en culturele voorzieningen. De nabijheid van het centraal station en uitvalswegen maakt de locatie bijzonder aantrekkelijk voor zowel gezinnen als professionals.</p>
-      <p>De woning beschikt over een woonoppervlakte van 144 m², verdeeld over drie woonlagen met in totaal zeven kamers, waaronder vier slaapkamers en twee werkkamers, ideaal voor thuiswerken of hobby's. Met 2,5 badkamers, waaronder een moderne badkamer met inloopdouche en dubbele wastafel, biedt de villa volop comfort. De keuken is voorzien van hoogwaardige inbouwapparatuur en de woning heeft energielabel A++, mede dankzij de warmtepomp en uitstekende isolatie. De serre met glazen lessenaarsdak en de historische details, zoals gestucte plafonds en originele vouwblinden, voegen extra karakter toe aan deze unieke woning.</p>
-      <p>Bent u klaar om de unieke charme van Villa "Rusthof" zelf te ervaren? Neem vandaag nog contact op met de verkopende makelaar voor meer informatie of om een bezichtiging te plannen. Mis deze kans niet om eigenaar te worden van een stukje Amersfoortse geschiedenis gecombineerd met modern wooncomfort.</p>
+      <p>PARAGRAAF2.</p>
+      <p>PARAGRAAF3.</p>
+      <p>PARAGRAAF4.</p>
+      <p>PARAGRAAF5.</p>
       <div id="hide-description-desktop" class="hide-description">
         <img src="../resources/images/icons/chevron-up.svg" alt="chevron up"> 
         <p class="secondary">Beschrijving inklappen</p>
