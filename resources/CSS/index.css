@@ -14,7 +14,7 @@ html, body {
     padding: 0;
     min-height: 100%;
     font-family: 'Trebuchet MS', Arial, sans-serif;
-    background-color: #F8F8F8;
+    background-color: #F4F4F4;
     height: auto;
     overflow-x: hidden;
 }
@@ -37,53 +37,192 @@ section {
 ============================ */
 
 #header {
-    position: sticky;
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 7vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 25px;
-    background-color: #E6E5E1;
-    box-shadow: none;
-  }
-  
-  #header a {
+    background-color: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+    padding: 0% 7%;
+}
+
+#header a {
     height: 100%;
     display: flex;
     align-items: center;
-  }
-  
-  #header img {
-    height: 80%;
-    width: auto;
-    max-height: 90%;
-  }
-  
-  #header-buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-  }
-  
-  #header-page-nav {
-    height: 80%;
+}
+
+#header-menu {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
-  }
+    gap: 13px;
+}
 
-  @media (max-width: 768px) {
+#header-menu:hover {
+    cursor: pointer;
+}
+
+#header-menu p {
+    color: #F4F4F4;
+}
+
+#menu-icon {
+    width: 35px;
+    height: auto;
+}
+
+#header-center-logo {
+    width: auto;
+    height: 80%;
+    transition: height 0.3s ease;
+}
+
+#header.scrolled #header-center-logo {
+    height: 60%;
+    width: auto;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* ========================================
+   PAGE MENU BASE STYLES
+======================================== */
+
+/* The hidden side menu */
+#page-menu {
+    position: fixed;
+    top: 0;
+    left: -20%; /* Start off-screen */
+    width: 20%;
+    height: 100vh;
+    background-color: #F4F4F4;
+    background-image: url("/resources/images/logos/icons/logo-icon-light-contrast.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-blend-mode: lighten; /* lightly merges with #F4F4F4 */
+    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1000; /* above page, below header if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 20px;
+    overflow-y: auto;
+}
+  
+/* When we add .open, slide into view */
+#page-menu.open {
+    left: 0;
+}
+  
+/* Row containing the close icon at top */
+#menu-close-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+  
+/* Close icon styling - rotates 180 on hover */
+#close-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+  
+#close-icon:hover {
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+  
+/* The links container */
+#menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+  
+.menu-link {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Animate them in with slight delay per nth-child */
+  #page-menu.open #menu-links .menu-link:nth-child(1) {
+    transition-delay: 0.05s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  #page-menu.open #menu-links .menu-link:nth-child(2) {
+    transition-delay: 0.1s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  #page-menu.open #menu-links .menu-link:nth-child(3) {
+    transition-delay: 0.15s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  #page-menu.open #menu-links .menu-link:nth-child(4) {
+    transition-delay: 0.2s;
+    transform: translateX(0);
+    opacity: 1;
+}
+  
+/* On hover, shift each link slightly to the right */
+.menu-link:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+  
+/* The row of two buttons at the bottom */
+#menu-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+  
+/* The overlay that darkens the rest of the page */
+#page-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none; /* hidden by default */
+}
+  
+/* Show overlay if menu is open */
+#page-menu-overlay.active {
+    display: block;
+}
+
+
+@media (max-width: 768px) {
     #header {
         /*When changing this position, remember the margins/padding on mobile pages*/
-        position: absolute;
+        position: fixed;
         width: 100%;
-        height: 7vh;
-        padding: 5px 5px;
+        height: 9vh;
+        padding: 8px 8px;
         gap: 5px;
     }
 
@@ -92,8 +231,16 @@ section {
         text-align: center;
         align-items: center;
         width: auto;
-        max-width: 200px;
         gap: 10px;
+    }
+
+    #header-buttons h5 {
+        font-size: 16px;
+    }
+
+    #menu-icon {
+        width: 20px;
+        height: auto;
     }
 
     #header h5.secondary-button {
@@ -116,7 +263,28 @@ section {
     #feedback-form-btn {
         display: none;
     }
+
+    #request-listing-form-btn {
+        display: none;
+    }
 }
+
+/*Page menu mobile responsiveness*/
+@media (max-width: 768px) {
+    #page-menu {
+      width: 70%;
+      left: -70%; 
+    }
+  
+    #page-menu.open {
+      left: 0;
+    }
+  
+    #menu-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
 
 #footer {
     position: relative;
@@ -124,7 +292,7 @@ section {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1A1A1A;
+    background-color: #333333;
 
     gap: 25px;
     height: auto;
@@ -329,15 +497,30 @@ p.detail {
 }
 
 /*Secondary button*/
-.secondary-button {
+.secondary-button-dark {
     border: 1px solid #333333;
     border-radius: 6px;
     color: #333333;
-    font-size: 16px;
+    font-size: 18px;
     padding: 0.5rem 0.7rem;
 }
 
-.secondary-button:hover {
+.secondary-button-dark:hover {
+    background-color: #F86D11;
+    color: #F4F4F4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.secondary-button-light {
+    border: 1px solid #F4F4F4;
+    border-radius: 6px;
+    color: #F4F4F4;
+    font-size: 18px;
+    padding: 0.5rem 0.7rem;
+}
+
+.secondary-button-light:hover {
     background-color: #F86D11;
     color: #F4F4F4;
     transition: all 0.3s ease;
@@ -508,13 +691,14 @@ p.detail {
 #hero-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     position: relative;
-    height: 78vh;
+    height: 90vh;
     width: 100%;
     z-index: 1;
-    padding: 2% 0% 2% 0%;
+    padding: 2% 0%;
+    overflow: hidden;
 }
 
 #hero-container > * {
@@ -659,9 +843,8 @@ p.detail {
         justify-content: center;
         align-items: center;
         position: relative;
-        min-height: 80vh;
+        min-height: 97vh;
         height: auto;
-        max-height: 92vh;
         width: 100%;
         gap: 20px;
     }
@@ -806,10 +989,12 @@ p.detail {
 
 #overview-topbar {
     display: flex;
+    margin-top: 0;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     width: 80%;
-    margin: 25px auto 0;
+    margin: 11vh auto 0 auto;
 }
 
 #topbar-row {
@@ -901,6 +1086,8 @@ p.detail {
     
     #listing-overview {
         display: grid;
+        margin-top: 0;
+        position: relative;
         grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
         gap: 1.5%;
         height: auto;
@@ -938,10 +1125,11 @@ p.detail {
 ============================ */
 
 .listing-hero {
+    margin-top: 0;
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 93vh;
+    height: 100vh;
 }
 
 .hero-image {
@@ -1142,12 +1330,17 @@ p.detail {
 
 .close-btn {
     position: absolute;
+    transition: transform 0.3s ease;
     top: 30px;
     right: 30px;
     width: 40px;
     height: 40px;
-    cursor: pointer;
     z-index: 1100;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    transform: rotate(180deg);
 }
 
 .arrow {
@@ -1273,12 +1466,12 @@ p.detail {
     justify-content: center;
     align-items: center;
     background-color: #E6E5E1;
-    width: 100%;
-    max-width: 90%;
-    padding: 1rem;
     border: 0.5px solid #787878;
+    padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 90%;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -1309,9 +1502,9 @@ p.detail {
 
 .sticky-active {
     position: fixed;
-    top: 20px;
+    top: 10vh;
     width: inherit;
-    z-index: 1000;
+    z-index: 900;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -1448,6 +1641,317 @@ p.detail {
 }
 
 /* ============================
+   Experience desktop styling
+============================ */
+
+.experience-page {
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin: 9vh auto;
+    gap: 1.25rem;
+    margin-bottom: 50px;
+}
+
+.experience-intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 50px;
+    background-color: #333333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 0.5px solid #787878;
+    border-radius: 10px;
+    padding: 50px 20px
+}
+
+.experience-intro img {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.experience-intro-text {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 8px;
+    margin: 8px 0px 20px 0px;
+}
+
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #E6E5E1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.stage-head {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    gap: 8px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.stage-head-name {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.stage-head-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+    gap: 30px;
+}
+
+.stage-head-chevron {
+    transition: transform 0.3s ease;
+    width: 20px;
+    height: auto;
+}
+
+.stage-head.open .stage-head-chevron {
+    transform: rotate(180deg);
+}
+
+.stage-information {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    justify-content: space-around;
+  
+    /* For transitions: we do max-height and opacity. */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+
+.stage-information.show {
+    max-height: 8000px; /* Make large enough to accommodate content */
+    margin-top: 30px;
+    gap: 20px;
+    opacity: 1;
+}
+
+.stage-description {
+    width: 50%;
+    align-self: flex-start;
+}
+
+.stage-content {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-top: -50px;
+    margin-bottom: 15px;
+    gap: 20px;
+    align-self: flex-end;
+}
+
+.stage-element {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stage-element-header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.stage-element-header h5 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stage-element-header p {
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.stage-element-header img {
+    width: 18px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.stage-element-header.open img {
+    transform: rotate(180deg);
+}  
+
+.stage-element-header:hover {
+    cursor: pointer;
+}
+
+.stage-element-content {
+    display: flex;
+    flex-direction: column;
+
+    /* For transitions: similar approach with max-height + opacity. */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.2s ease;
+    position: relative;
+}
+
+.stage-element-content.show {
+    max-height: 5000px;
+    opacity: 1;
+    margin-top: 4px;
+    gap: 10px;
+    overflow: visible;
+}
+
+.stage-element-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 250%;
+    margin-left: -150%;
+    gap: 20px;
+    padding-left: 10px;
+}
+
+.stage-element-template {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0.5px solid #333333;
+    border-radius: 6px;
+    background-color: #F86D11;
+    padding: 0.5rem 0.7rem;
+    width: fit-content;
+}
+
+.stage-element-template p {
+    font-size: 16px;
+}
+
+.stage-element-template:hover {
+    background-color: #D35D0E;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.stage-article {
+    width: 250%;
+    margin-left: -150%;
+    overflow-x: visible;
+    background-color: #F4F4F4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 0.5px solid #787878;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.stage-article li {
+    margin-left: 15px;
+}
+
+.stage-article h5, h6, p {
+    color: #333333;
+}
+
+.stage-article h5 {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.stage-article h6 {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stage-article p {
+    font-size: 16px;
+}
+
+
+/* ============================
+   Experience mobile styling
+============================ */
+@media (max-width: 768px) {
+    .experience-page {
+        width: 90%;
+    }
+    
+    .experience-intro {
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 7rem;
+        padding: 15px 20px
+    }
+    
+    .experience-intro img {
+        width: 100%;
+    }
+    
+    .experience-intro-text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .stage-head h4 {
+        font-size: 20px;
+    }
+
+    .stage-information {
+        flex-direction: column;
+    }
+
+    .stage-information.show {
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .stage-description {
+        align-self: center;
+        width: 100%;
+    }
+
+    .stage-content {
+        align-self: center;
+        width: 100%;
+        margin-top: 0;
+        gap: 10px;
+    }
+
+    .stage-element-buttons {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .stage-article {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* ============================
    Other desktop styling
 ============================ */
 
@@ -1464,6 +1968,7 @@ p.detail {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 9vh;
     gap: 8px;
     margin-bottom: 8px;
 }
@@ -1480,10 +1985,11 @@ p.detail {
 .article {
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding: 1vh;
     gap: 7px;
     width: 60%;
-    padding: 3vh 0;
-    margin: 0 auto;
+    margin: 9vh auto;
 }
 
 .article h2,
