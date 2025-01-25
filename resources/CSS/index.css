@@ -1895,6 +1895,7 @@ p.detail {
 @media (max-width: 768px) {
     .experience-page {
         width: 90%;
+        margin: 0vh auto;
     }
     
     .experience-intro {
