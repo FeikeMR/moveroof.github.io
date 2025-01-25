@@ -3,32 +3,58 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../resources/CSS/index.css">
-  <script src="../resources/js/main.js"></script>
-  <div id="popups" defer></div>
-  <script src="../resources/js/formHandler.js" defer></script>
+  <link rel="stylesheet" href="/resources/CSS/index.css">
+  <script src="/resources/js/main.js"></script>
+  <div id="popups"></div>
+  <script src="/resources/js/formHandler.js" defer></script>
 </head>
 
 <body>
   <!-- The actual header -->
   <div id="header">
-    <div id="header-page-nav">
-      <a href="/index.html">
-        <img class="full-logo" src="../resources/images/logos/full logo/full-logo-yellow-orange-dark.svg" alt="full logo">
-        <img class="logo-icon" src="../resources/images/logos/icons/logo-icon-orange.svg" alt="logo icon">
-      </a>
-      <h5 class="nav-button">
-        <a href="./aanbod.html">Aanbod</a>
-      </h5>
-      <h5 class="nav-button">
-        <a href="./over-moveroof.html">Over MoveRoof</a>
-      </h5>
+    <div id="header-menu">
+      <img id="menu-icon" src="/resources/images/icons/menu-icon-light.svg" alt="Menu Icon">
+      <p>MENU</p>
     </div>
-    <div id="header-buttons">
-      <h5 class="secondary-button" id="request-listing-form-btn">Plaats jouw woning</h5>
-      <h5 class="secondary-button" id="feedback-form-btn">Geef feedback</h5>
+    <a href="/index.html">
+      <img id="header-center-logo" src="/resources/images/logos/full logo/full-logo-yellow-orange-light.svg" alt="Full Logo">
+    </a>
+    <div class="header-buttons">
+      <h5 class="secondary-button-light" id="request-listing-form-btn">Plaats woning</h5>
     </div>
   </div>
 
+  <!-- Page Menu (hidden by default) -->
+  <div id="page-menu">
+    <div id="menu-close-row">
+      <img id="close-icon" src="/resources/images/icons/close-icon.svg" alt="Close Menu">
+    </div>
+    
+    <!-- Links (animated "wave" on open) -->
+    <div id="menu-links">
+      <!-- Each link is a <a> wrapping an <h3> for styling -->
+      <a href="/index.html" class="menu-link">
+        <h4 class="secondary">Home</h4>
+      </a>
+      <a href="/aanbod.html" class="menu-link">
+        <h4 class="secondary">Aanbod</h4>
+      </a>
+      <a href="/verkopen.html" class="menu-link">
+        <h4 class="secondary">Verkoopervaring</h4>
+      </a>
+      <a href="/over-moveroof.html" class="menu-link">
+        <h4 class="secondary">Over MoveRoof</h4>
+      </a>
+    </div>
+
+    <!-- Two buttons at bottom of menu -->
+    <div id="menu-buttons">
+      <h5 class="secondary-button-dark" id="feedback-form-btn-menu">Geef feedback</h5>
+      <h5 class="secondary-button-dark" id="request-listing-form-btn-menu">Plaats woning</h5>
+    </div>
+  </div>
+
+  <!-- Overlay that darkens the page when menu is open -->
+  <div id="page-menu-overlay"></div>
 </body>
 </html>
