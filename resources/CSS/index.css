@@ -1,14 +1,20 @@
+/****************************************************************************
+ *  1) RESET & GLOBAL STYLES
+ ****************************************************************************/
 
-/* ============================
-   Main page
-============================ */
-
+/* Reset all elements to remove default spacing and enforce border-box. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* HTML & body global defaults:
+   - Ensure full height
+   - Define font
+   - Set background color
+   - Hide horizontal overflow
+*/
 html, body {
     margin: 0;
     padding: 0;
@@ -19,23 +25,293 @@ html, body {
     overflow-x: hidden;
 }
 
+/* Section defaults for spacing and overflow. */
 section {
-    margin-bottom: 25px;
+    margin-bottom: 25px; /* overwritten by the next line, but preserved */
     margin: 0 auto;
     height: auto;
     overflow: visible;
 }
 
+/****************************************************************************
+ *  2) TYPOGRAPHY
+ ****************************************************************************/
+
+/* Remove default underlines, keep color, font inheritance on anchor tags. */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, p a, img a, div a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+}
+
+/* Base heading styles. */
+h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+    font-weight: 800;
+}
+
+/* Heading font sizes (desktop). */
+h1 { font-size: 50px; }
+h2 { font-size: 42px; }
+h3 {
+    font-size: 34px;
+    font-weight: 600;
+}
+h4 {
+    font-size: 24px;
+    font-weight: 600;
+}
+h5, h6 {
+    font-size: 20px;
+    font-weight: 600;
+}
+h6 { font-weight: 500; }
+
+/* Paragraph styling. */
+p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #333333;
+}
+
+/* Color utility classes. */
+.secondary { color: #F86D11; }
+.white { color: #F4F4F4; }
+.detail { color: #787878; }
+
+/* Alternate paragraph color variants. */
+p.secondary { color: #F86D11; }
+p.white { color: #F4F4F4; }
+p.detail {
+    color: #787878;
+    font-size: 16px;
+}
+
+/* ========== Responsive Typography ========== */
 @media (max-width: 768px) {
-    .section {
-        width: 100%;
+    h1 { font-size: 40px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 30px; font-weight: 600; }
+    h4 { font-size: 22px; font-weight: 600; }
+    h5, h6 { font-size: 18px; font-weight: 600; }
+    h6 { font-weight: 500; }
+
+    p {
+        font-size: 16px;
+        line-height: 1.4; /* Slightly increased for readability */
+    }
+
+    p.detail {
+        font-size: 14px;
     }
 }
 
+/****************************************************************************
+ *  3) BUTTON STYLES
+ ****************************************************************************/
+
+/* Main CTA button - orange outline, large text. */
+.main-button {
+    border: 1px solid #F86D11;
+    border-radius: 6px;
+    color: #F86D11;
+    font-size: 26px;
+    display: inline-flex;
+    padding: 10px 20px;
+    margin-right: 20px;
+    text-decoration: none; /* recommended to keep consistent */
+}
+
+.main-button:hover {
+    background-color: #F86D11;
+    color: #F4F4F4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Secondary dark button - black outline, smaller text. */
+.secondary-button-dark {
+    border: 1px solid #333333;
+    border-radius: 6px;
+    color: #333333;
+    font-size: 18px;
+    padding: 0.5rem 0.7rem;
+}
+
+.secondary-button-dark:hover {
+    background-color: #F86D11;
+    color: #F4F4F4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Secondary light button - white outline, smaller text. */
+.secondary-button-light {
+    border: 1px solid #F4F4F4;
+    border-radius: 6px;
+    color: #F4F4F4;
+    font-size: 18px;
+    padding: 0.5rem 0.7rem;
+}
+
+.secondary-button-light:hover {
+    background-color: #F86D11;
+    color: #F4F4F4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Submit button - used in forms, fully orange background. */
+.submit-button {
+    border: 0.5px solid #333333;
+    border-radius: 6px;
+    color: #F4F4F4;
+    background-color: #F86D11;
+    font-size: 18px;
+    padding: 0.5rem 0.7rem;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #D35D0E;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Nav button - no outline, text color changes on hover. */
+.nav-button {
+    color: #333333;
+    padding: 4px 4px;
+    text-align: center;
+}
+
+.nav-button:hover {
+    color: #F86D11;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Secondary nav button - white text, no outline, changes on hover. */
+.secondary-nav-button {
+    color: #F4F4F4;
+    padding: 4px 8px;
+}
+
+.secondary-nav-button:hover {
+    color: #F86D11;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Additional mobile adjustments for secondary buttons. */
+@media (max-width: 768px) {
+    .secondary-button {
+        padding: 0.5rem 0.3rem;
+    }
+}
+
+/****************************************************************************
+ *  4) FORM STYLING
+ ****************************************************************************/
+
+/* Input group for label-floating effect. */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 8px; /* repeated property from below grouping */
+}
+
+/* Row of inputs side by side (e.g., first name / last name). */
+.input-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Floating label text. */
+.input-name {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+/* General input styling. */
+.input-field {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: .6rem;
+    width: 100%;
+}
+
+/* Larger text area version. */
+.text-field {
+    font-size: 16px;
+    border-radius: 8px;
+    padding: .6rem;
+    margin-bottom: 15px;
+    height: 7.5rem;
+    outline: none;
+    border: none;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+/* Floating label effect for placeholder and label transitions. */
+.input-field::placeholder,
+.text-field::placeholder {
+    color: transparent;
+}
+
+/* If not empty or focused, push label up. */
+.input-field:focus + .input-name,
+.input-field:not(:placeholder-shown) + .input-name,
+.text-field:focus + .input-name,
+.text-field:not(:placeholder-shown) + .input-name {
+    top: 0;
+    transform: translateY(-100%);
+    font-size: 0.9rem;
+    opacity: 1;
+}
+
+/* Hide placeholder on focus. */
+.input-field:focus::placeholder,
+.text-field:focus::placeholder {
+    opacity: 0;
+}
+
+/* Mobile placeholder size. */
+@media (max-width: 768px) {
+    .input-field::placeholder,
+    .text-field::placeholder {
+        font-size: 0.85em;
+    }
+}
+
+/****************************************************************************
+ *  5) REUSABLE COMPONENTS
+ ****************************************************************************/
+
 /* ============================
-   Reusable elements
+   HEADER
 ============================ */
 
+/* Main header container. */
 #header {
     width: 100%;
     height: 9vh;
@@ -52,12 +328,14 @@ section {
     padding: 0% 7%;
 }
 
+/* Header brand link. */
 #header a {
     height: 100%;
     display: flex;
     align-items: center;
 }
 
+/* Menu icon and text container. */
 #header-menu {
     display: flex;
     flex-direction: row;
@@ -73,11 +351,13 @@ section {
     color: #F4F4F4;
 }
 
+/* Hamburger menu icon. */
 #menu-icon {
     width: 35px;
     height: auto;
 }
 
+/* Center logo styling and scrolled variant. */
 #header-center-logo {
     width: auto;
     height: 80%;
@@ -89,133 +369,14 @@ section {
     width: auto;
 }
 
+/* Header right-side buttons container. */
 .header-buttons {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-/* ========================================
-   PAGE MENU BASE STYLES
-======================================== */
-
-/* The hidden side menu */
-#page-menu {
-    position: fixed;
-    top: 0;
-    left: -20%; /* Start off-screen */
-    width: 20%;
-    height: 100vh;
-    background-color: #F4F4F4;
-    background-image: url("/resources/images/logos/icons/logo-icon-light-contrast.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    background-blend-mode: lighten; /* lightly merges with #F4F4F4 */
-    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
-    transition: left 0.3s ease;
-    z-index: 1000; /* above page, below header if needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: 20px;
-    overflow-y: auto;
-}
-  
-/* When we add .open, slide into view */
-#page-menu.open {
-    left: 0;
-}
-  
-/* Row containing the close icon at top */
-#menu-close-row {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 15px;
-}
-  
-/* Close icon styling - rotates 180 on hover */
-#close-icon {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-}
-  
-#close-icon:hover {
-    transform: rotate(180deg);
-    cursor: pointer;
-}
-  
-/* The links container */
-#menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-  
-.menu-link {
-    transform: translateX(-20px);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  /* Animate them in with slight delay per nth-child */
-  #page-menu.open #menu-links .menu-link:nth-child(1) {
-    transition-delay: 0.05s;
-    transform: translateX(0);
-    opacity: 1;
-  }
-  #page-menu.open #menu-links .menu-link:nth-child(2) {
-    transition-delay: 0.1s;
-    transform: translateX(0);
-    opacity: 1;
-  }
-  #page-menu.open #menu-links .menu-link:nth-child(3) {
-    transition-delay: 0.15s;
-    transform: translateX(0);
-    opacity: 1;
-  }
-  #page-menu.open #menu-links .menu-link:nth-child(4) {
-    transition-delay: 0.2s;
-    transform: translateX(0);
-    opacity: 1;
-}
-  
-/* On hover, shift each link slightly to the right */
-.menu-link:hover {
-    transform: translateX(5px);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-  
-/* The row of two buttons at the bottom */
-#menu-buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-top: 20px;
-}
-  
-/* The overlay that darkens the rest of the page */
-#page-menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 999;
-    display: none; /* hidden by default */
-}
-  
-/* Show overlay if menu is open */
-#page-menu-overlay.active {
-    display: block;
-}
-
-
+/* Header mobile responsive. */
 @media (max-width: 768px) {
     #header {
         /*When changing this position, remember the margins/padding on mobile pages*/
@@ -255,36 +416,162 @@ section {
         gap: 5px;
     }
 
-    .secondary-nav-button{
+    .secondary-nav-button {
         padding: 2px 2px;
         font-size: 16px;
     }
 
+    /* Hide certain buttons on mobile. */
     #feedback-form-btn {
         display: none;
     }
-
     #request-listing-form-btn {
         display: none;
     }
 }
 
-/*Page menu mobile responsiveness*/
+/* ============================
+   PAGE MENU (Side Drawer)
+============================ */
+
+/* The hidden side menu. */
+#page-menu {
+    position: fixed;
+    top: 0;
+    left: -20%; /* Start off-screen */
+    width: 20%;
+    height: 100vh;
+    background-color: #F4F4F4;
+    background-image: url("/resources/images/logos/icons/logo-icon-light-contrast.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-blend-mode: lighten; /* lightly merges with #F4F4F4 */
+    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1000; /* above page, below header if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Slide into view when .open is added. */
+#page-menu.open {
+    left: 0;
+}
+
+/* Close icon row at top. */
+#menu-close-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+/* Close icon (X) that rotates on hover. */
+#close-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+#close-icon:hover {
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+/* The links container. */
+#menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Menu links: animate them in from left with a staggered delay. */
+.menu-link {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+#page-menu.open #menu-links .menu-link:nth-child(1) {
+    transition-delay: 0.15s;
+    transform: translateX(0);
+    opacity: 1;
+}
+#page-menu.open #menu-links .menu-link:nth-child(2) {
+    transition-delay: 0.25s;
+    transform: translateX(0);
+    opacity: 1;
+}
+#page-menu.open #menu-links .menu-link:nth-child(3) {
+    transition-delay: 0.35s;
+    transform: translateX(0);
+    opacity: 1;
+}
+#page-menu.open #menu-links .menu-link:nth-child(4) {
+    transition-delay: 0.45s;
+    transform: translateX(0);
+    opacity: 1;
+}
+#page-menu.open #menu-links .menu-link:nth-child(5) {
+    transition-delay: 0.55s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Hover shift to the right. */
+.menu-link:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Row of two buttons at the bottom. */
+#menu-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* The overlay that darkens the rest of the page, active when menu is open. */
+#page-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none; /* hidden by default */
+}
+
+#page-menu-overlay.active {
+    display: block;
+}
+
+/* Page menu mobile responsiveness. */
 @media (max-width: 768px) {
     #page-menu {
-      width: 70%;
-      left: -70%; 
+        width: 70%;
+        left: -70%;
     }
-  
     #page-menu.open {
-      left: 0;
+        left: 0;
     }
-  
     #menu-buttons {
-      flex-direction: column;
-      align-items: stretch;
+        flex-direction: column;
+        align-items: stretch;
     }
-  }
+}
+
+/* ============================
+   FOOTER
+============================ */
 
 #footer {
     position: relative;
@@ -293,7 +580,6 @@ section {
     align-items: center;
     padding: 20px;
     background-color: #333333;
-
     gap: 25px;
     height: auto;
 }
@@ -309,6 +595,7 @@ section {
     gap: 25px;
 }
 
+/* Footer mobile responsiveness. */
 @media (max-width: 768px) {
     #footer {
         flex-direction: column;
@@ -330,6 +617,7 @@ section {
     }
 }
 
+/* Full vs icon logo for different breakpoints. */
 .full-logo {
     display: block;
 }
@@ -342,17 +630,21 @@ section {
     .full-logo {
         display: none;
     }
-
     .logo-icon {
         display: block;
     }
 }
 
-/* General Popup Styling */
+/****************************************************************************
+ *  6) GENERAL POPUP STYLING
+ ****************************************************************************/
+
+/* Utility class to hide an element. */
 .hidden {
     display: none;
 }
 
+/* Multiple popups, same styling. */
 #request-listing-popup, 
 #give-feedback-popup, 
 #thankyou-feedback-popup, 
@@ -374,11 +666,13 @@ section {
     padding: 1.5rem;
 }
 
-#request-listing-popup h3, #give-feedback-popup h3 {
+/* Headings inside request/feedback popups. */
+#request-listing-popup h3, 
+#give-feedback-popup h3 {
     margin-bottom: 5px;
 }
 
-
+/* Generic popup styling. */
 .popup {
     display: flex;
     flex-direction: column;
@@ -395,6 +689,7 @@ section {
     z-index: 1001;
 }
 
+/* Popup overlay behind modals. */
 #popup-overlay {
     position: fixed;
     top: 0;
@@ -406,288 +701,13 @@ section {
     z-index: 1000;
 }
 
-/* ============================
-   Typography
-============================ */
+/* ==========================================================================
+   INDEX.HTML STYLES
+   ========================================================================== */
 
-/* No link styling with anchor tags */
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, p a, img a, div a {
-    text-decoration: none;
-    color: inherit;
-    font: inherit;
-}
+/* ---------- Desktop ---------- */
 
-/* Header Base Styles */
-h1, h2, h3, h4, h5, h6 {
-    color: #333333;
-    font-weight: 800;
-}
-
-/* Font Sizes */
-h1 { font-size: 50px; }
-h2 { font-size: 42px; }
-h3 { font-size: 34px; font-weight: 600; }
-h4 { font-size: 24px; font-weight: 600; }
-h5, h6 { font-size: 20px; font-weight: 600; }
-h6 { font-weight: 500; }
-
-/* Secondary and White Variants */
-.secondary { color: #F86D11; }
-.white { color: #F4F4F4; }
-.detail {color: #787878;}
-
-/* Paragraphs */
-p {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #333333;
-}
-
-p.secondary { color: #F86D11; }
-p.white { color: #F4F4F4; }
-
-/* Paragraph Detail */
-p.detail {
-    color: #787878;
-    font-size: 16px;
-}
-
-/* ============================
-   Mobile Typography
-============================ */
-@media (max-width: 768px) {
-    h1 { font-size: 40px; }
-    h2 { font-size: 36px; }
-    h3 { font-size: 30px; font-weight: 600; }
-    h4 { font-size: 22px; font-weight: 600; }
-    h5, h6 { font-size: 18px; font-weight: 600; }
-    h6 { font-weight: 500; }
-
-    p {
-        font-size: 16px;
-        line-height: 1.4; /* Slightly increased for readability */
-    }
-
-    p.detail {
-        font-size: 14px;
-    }
-}
-
-/* ============================
-   Buttons
-============================ */
-
-/*Main button*/
-.main-button{
-    border: 1px solid #F86D11;
-    border-radius: 6px;
-    color: #F86D11;
-    font-size: 26px;
-    display: inline-flex;
-    padding: 10px 20px;
-    margin-right: 20px;
-}
-
-.main-button:hover{
-    background-color: #F86D11;
-    color: #F4F4F4;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-/*Secondary button*/
-.secondary-button-dark {
-    border: 1px solid #333333;
-    border-radius: 6px;
-    color: #333333;
-    font-size: 18px;
-    padding: 0.5rem 0.7rem;
-}
-
-.secondary-button-dark:hover {
-    background-color: #F86D11;
-    color: #F4F4F4;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.secondary-button-light {
-    border: 1px solid #F4F4F4;
-    border-radius: 6px;
-    color: #F4F4F4;
-    font-size: 18px;
-    padding: 0.5rem 0.7rem;
-}
-
-.secondary-button-light:hover {
-    background-color: #F86D11;
-    color: #F4F4F4;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.submit-button {
-    border: 0.5px solid #333333;
-    border-radius: 6px;
-    color: #F4F4F4;
-    background-color: #F86D11;
-    font-size: 18px;
-    padding: 0.5rem 0.7rem;
-    width: 100%;
-}
-
-.submit-button:hover {
-    background-color: #D35D0E;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-/*Page nav no outline button*/
-.nav-button {
-    color: #333333;
-    padding: 4px 4px;
-    text-align: center;
-}
-
-.nav-button:hover {
-    color: #F86D11;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-/*Secondary page nav no outline button*/
-.secondary-nav-button {
-    color: #F4F4F4;
-    padding: 4px 8px;
-}
-
-.secondary-nav-button:hover {
-    color: #F86D11;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .secondary-button {
-        padding: 0.5rem 0.3rem;
-    }
-}
-
-/* ============================
-   Form styling
-============================ */
-.input-group {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 15px;
-    width: 100%;
-}
-
-.input-row {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    width: 100%;
-}
-
-.input-name {
-    font-size: 18px;
-    font-weight: 400;
-    color: #333333;
-    /*Styling for hide/show input-name*/
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.input-field {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    padding: .6rem;
-}
-
-.text-field {
-    font-size: 16px;
-    border-radius: 8px;
-    padding: .6rem;
-    margin-bottom: 15px;
-    height: 7.5rem;
-    outline: none;
-    border: none;
-    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
-
-}
-
-/*Styling for hide/show input-name and placeholder*/
-.input-group {
-    position: relative;
-    margin-bottom: 8px;
-  }
-  
-  .input-field,
-  .text-field {
-    width: 100%;
-    padding: 0.75rem;
-    box-sizing: border-box;
-    outline: none;
-  }
-  
-.input-name {
-    position: absolute;
-    top: 50%;
-    left: 0.75rem;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: all 0.2s ease;
-    opacity: 0.5;
-  }
-  
-  .input-field:focus + .input-name,
-  .input-field:not(:placeholder-shown) + .input-name,
-  .text-field:focus + .input-name,
-  .text-field:not(:placeholder-shown) + .input-name {
-    top: 0;
-    transform: translateY(-100%);
-    font-size: 0.9rem;
-    opacity: 1;
-  }
-  
-  .input-field::placeholder,
-  .text-field::placeholder {
-    color: transparent;
-  }
-
-  .text-field::placeholder {
-    transform: translateY(0);
-    top: 0.6rem;
-    left: 0.6rem;
-  }
-  
-  .input-field:focus::placeholder,
-  .text-field:focus::placeholder {
-    opacity: 0;
-  }
-
-  @media (max-width: 768px) {
-    .input-field::placeholder, .text-field::placeholder {
-    font-size: 0.85em;
-}
-  }
-
-/* ============================
-   Index.html desktop styling
-============================ */
-
+/* Hero container with image and large text area. */
 #hero-container {
     display: flex;
     flex-direction: row;
@@ -734,6 +754,7 @@ p.detail {
     margin-bottom: 25px;
 }
 
+/* Process explanation section (flow steps). */
 #process-explanation {
     display: flex;
     flex-direction: column;
@@ -764,6 +785,7 @@ p.detail {
     gap: 10px;
 }
 
+/* FAQ section with image and Q&A. */
 .FAQ {
     display: flex;
     flex-direction: row;
@@ -832,10 +854,7 @@ p.detail {
     transform: rotate(180deg);
 }
 
-/* ============================
-   index.html mobile styling
-============================ */
-
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
     #hero-container {
         display: flex;
@@ -983,10 +1002,13 @@ p.detail {
     }
 }
 
-/* ============================
-   Aanbod.html desktop styling
-============================ */
+/* ==========================================================================
+   AANBOD.HTML (LISTING OVERVIEW) STYLES
+   ========================================================================== */
 
+/* ---------- Desktop ---------- */
+
+/* Overview top bar. */
 #overview-topbar {
     display: flex;
     margin-top: 0;
@@ -1007,7 +1029,9 @@ p.detail {
     border: 0.4px solid #787878;
 }
 
-#listing-overview, .listing-tile {
+/* Listing overview grid and tiles. */
+#listing-overview,
+.listing-tile {
     overflow: visible;
 }
 
@@ -1028,6 +1052,7 @@ p.detail {
     gap: 8px;
 }
 
+/* Highlight tile image on hover. */
 .listing-tile:hover .listing-tile-image {
     outline: 2px solid #F86D11;
 }
@@ -1078,12 +1103,8 @@ p.detail {
     font-size: 14px;
 }
 
-/* ============================
-   Aanbod.html mobile styling
-============================ */
-
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
-    
     #listing-overview {
         display: grid;
         margin-top: 0;
@@ -1096,8 +1117,8 @@ p.detail {
         padding: 2.5vh 0 35vh;
         margin: 0 auto;
     }
-    
-    .listing-tile{
+
+    .listing-tile {
         width: 100%;
     }
 
@@ -1114,16 +1135,19 @@ p.detail {
         max-width: 200px;
         text-align: center;
     }
-    
+
     .listing-tile-data-point img {
         height: 18px;
     }
 }
 
-/* ============================
-   Listing page desktop styling
-============================ */
+/* ==========================================================================
+    LISTING PAGE STYLES
+   ========================================================================== */
 
+/* ---------- Desktop ---------- */
+
+/* Hero/slideshow area. */
 .listing-hero {
     margin-top: 0;
     position: relative;
@@ -1151,6 +1175,7 @@ p.detail {
     z-index: 2;
 }
 
+/* Hero details container at bottom. */
 .listing-hero-container {
     position: absolute;
     bottom: 0;
@@ -1171,6 +1196,7 @@ p.detail {
     border-top-right-radius: 20px;
 }
 
+/* Street, city, price grouping. */
 .listing-hero-details {
     display: flex;
     flex-direction: row;
@@ -1209,6 +1235,7 @@ p.detail {
     gap: 30px;
 }
 
+/* Data points (m2, rooms, etc.). */
 .listing-hero-data {
     display: flex;
     flex-direction: row;
@@ -1248,12 +1275,14 @@ p.detail {
     gap: 6px;
 }
 
+/* Call to action buttons overlay on hero. */
 .listing-hero-CTA {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
+/* Scroll prompt arrow on side. */
 .scroll-prompt {
     display: flex;
     flex-direction: column;
@@ -1274,6 +1303,7 @@ p.detail {
     text-align: center;
 }
 
+/* "View all images" button. */
 .listing-hero-container .main-button {
     position: absolute;
     bottom: 15%;
@@ -1296,7 +1326,7 @@ p.detail {
     font-size: 18px;
 }
 
-/* Listing hero images popup styling */
+/* Fullscreen image popup. */
 #popup-hidden-images {
     display: none;
 }
@@ -1361,7 +1391,7 @@ p.detail {
     right: 30px;
 }
 
-/* Listing page content styling */
+/* Listing main content below hero. */
 .listing-detail-content {
     display: flex;
     flex-direction: row;
@@ -1372,7 +1402,7 @@ p.detail {
     margin: 3.5% auto 30px;
 }
 
-/* Data list styling */
+/* Data list (features, specs, etc.). */
 .listing-data-list {
     display: flex;
     flex-direction: column;
@@ -1399,12 +1429,11 @@ p.detail {
     flex-basis: 40%;
 }
 
-/*RGB instead of HEX for transparency*/
 #seperation-line-horiz {
     border: 0.5px solid rgba(120, 120, 120, 0.7);
 }
 
-/* Description styling */
+/* Description + interest form container. */
 .listing-description-interest {
     order: 2;
     flex: 1;
@@ -1415,6 +1444,7 @@ p.detail {
     gap: 1rem;
 }
 
+/* Description toggles. */
 .listing-description-mobile h4,
 .listing-description-desktop h4 {
     margin-bottom: 8px;
@@ -1456,8 +1486,7 @@ p.detail {
     text-align: justify;
 }
 
-/* Listing interest form styling */
-
+/* Interest form styling. */
 .listing-interest {
     position: relative;
     top: 0;
@@ -1496,10 +1525,7 @@ p.detail {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.input-field, .text-field {
-    width: 100%;
-}
-
+/* Sticky interest form on scroll. */
 .sticky-active {
     position: fixed;
     top: 10vh;
@@ -1527,18 +1553,15 @@ p.detail {
     justify-content: space-between;
 }
 
-/* ============================
-   Listing page mobile styling
-============================ */
-
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
-    .listing-hero{
+    .listing-hero {
         height: 60vh;
         width: 100%;
         position: relative;
     }
     
-    .hero-image{
+    .hero-image {
         height: 45vh;
         width: auto;
     }
@@ -1605,7 +1628,8 @@ p.detail {
         font-size: 18px;
     }
 
-    .scroll-prompt, #view-listing-images {
+    .scroll-prompt,
+    #view-listing-images {
         display: none;
     }
     
@@ -1640,10 +1664,13 @@ p.detail {
     }
 }
 
-/* ============================
-   Experience desktop styling
-============================ */
+/* ==========================================================================
+   EXPERIENCE PAGE STYLES
+   ========================================================================== */
 
+/* ---------- Desktop ---------- */
+
+/* Main container for the experience page. */
 .experience-page {
     width: 60%;
     height: fit-content;
@@ -1656,6 +1683,7 @@ p.detail {
     margin-bottom: 50px;
 }
 
+/* Intro section at top with image & text. */
 .experience-intro {
     display: flex;
     flex-direction: row;
@@ -1666,7 +1694,7 @@ p.detail {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border: 0.5px solid #787878;
     border-radius: 10px;
-    padding: 50px 20px
+    padding: 50px 20px;
 }
 
 .experience-intro img {
@@ -1683,6 +1711,7 @@ p.detail {
     margin: 8px 0px 20px 0px;
 }
 
+/* Each "stage" panel with toggles. */
 .stage {
     display: flex;
     flex-direction: column;
@@ -1709,13 +1738,25 @@ p.detail {
     gap: 10px;
 }
 
-
 .stage-head-icons {
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: right;
     gap: 30px;
+}
+
+.template-label-icon {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 3px;
+    display: none;
+}
+
+.template-label-icon img {
+    width: 20px;
+    height: auto;
 }
 
 .stage-head-chevron {
@@ -1733,8 +1774,6 @@ p.detail {
     flex-direction: column;
     width: 95%;
     justify-content: space-around;
-  
-    /* For transitions: we do max-height and opacity. */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -1742,12 +1781,13 @@ p.detail {
 }
 
 .stage-information.show {
-    max-height: 8000px; /* Make large enough to accommodate content */
+    max-height: 8000px; /* large enough to accommodate content */
     margin-top: 30px;
     gap: 20px;
     opacity: 1;
 }
 
+/* Left and right columns in expanded stage. */
 .stage-description {
     width: 50%;
     align-self: flex-start;
@@ -1763,6 +1803,7 @@ p.detail {
     align-self: flex-end;
 }
 
+/* Nested collapsible elements inside a stage. */
 .stage-element {
     display: flex;
     flex-direction: column;
@@ -1788,15 +1829,15 @@ p.detail {
     font-weight: 200;
 }
 
-.stage-element-header img {
+.stage-element-header .stage-element-header-chevron {
     width: 18px;
     height: auto;
     transition: transform 0.3s ease;
 }
 
-.stage-element-header.open img {
+.stage-element-header.open .stage-element-header-chevron {
     transform: rotate(180deg);
-}  
+}
 
 .stage-element-header:hover {
     cursor: pointer;
@@ -1805,8 +1846,6 @@ p.detail {
 .stage-element-content {
     display: flex;
     flex-direction: column;
-
-    /* For transitions: similar approach with max-height + opacity. */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -1822,6 +1861,7 @@ p.detail {
     overflow: visible;
 }
 
+/* Button row (for docs/templates) that slides horizontally. */
 .stage-element-buttons {
     display: flex;
     flex-direction: row;
@@ -1829,8 +1869,11 @@ p.detail {
     margin-left: -150%;
     gap: 20px;
     padding-left: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
+/* A single template button. */
 .stage-element-template {
     display: inline-flex;
     align-items: center;
@@ -1853,6 +1896,7 @@ p.detail {
     cursor: pointer;
 }
 
+/* Article container that expands horizontally. */
 .stage-article {
     width: 250%;
     margin-left: -150%;
@@ -1868,7 +1912,9 @@ p.detail {
     margin-left: 15px;
 }
 
-.stage-article h5, h6, p {
+.stage-article h5, 
+.stage-article h6, 
+.stage-article p {
     color: #333333;
 }
 
@@ -1888,27 +1934,24 @@ p.detail {
     font-size: 16px;
 }
 
-
-/* ============================
-   Experience mobile styling
-============================ */
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
     .experience-page {
         width: 90%;
-        margin: 0vh auto;
+        margin: 0vh auto 5vh auto;
     }
-    
+
     .experience-intro {
         flex-direction: column;
         justify-content: space-evenly;
         margin-top: 7rem;
-        padding: 15px 20px
+        padding: 15px 20px;
     }
-    
+
     .experience-intro img {
         width: 100%;
     }
-    
+
     .experience-intro-text {
         display: flex;
         flex-direction: column;
@@ -1918,6 +1961,23 @@ p.detail {
 
     .stage-head h4 {
         font-size: 20px;
+    }
+
+    .stage-head-icons {
+        gap: 10px;
+    }
+
+    .template-label-text{
+        display: none;
+    }
+
+    .template-label-icon {
+        display: flex;
+    }
+
+    .stage-head-chevron {
+        width: 15px;
+        height: auto;
     }
 
     .stage-information {
@@ -1952,10 +2012,11 @@ p.detail {
     }
 }
 
-/* ============================
-   Other desktop styling
-============================ */
+/* ==========================================================================
+    OTHER PAGES / MISC STYLES
+   ========================================================================== */
 
+/* Utility for splitting columns. */
 .split-column {
     display: flex;
     flex-direction: row;
@@ -1964,6 +2025,7 @@ p.detail {
     width: 100%;
 }
 
+/* Simple link container for articles. */
 #article-link {
     display: flex;
     flex-direction: column;
@@ -1978,11 +2040,13 @@ p.detail {
     width: 50%;
 }
 
+/* Hover color change. */
 #article-link:hover h6,
 #article-link:hover p {
     color: #F86D11;
 }
 
+/* Article page container. */
 .article {
     display: flex;
     flex-direction: column;
@@ -2006,7 +2070,7 @@ p.detail {
     padding: 0 2rem;
 }
 
-
+/* About page layout. */
 #about-page {
     display: flex;
     flex-direction: column;
@@ -2056,10 +2120,7 @@ p.detail {
     text-align: start;
 }
 
-/* ============================
-   Other mobile styling
-============================ */
-
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
     .article {
         width: 90%;
