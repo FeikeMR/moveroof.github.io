@@ -1037,15 +1037,15 @@ p.detail {
 
 #listing-overview {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(31%, 1fr));
-    gap: 3%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1%;
     width: 80%;
     padding: 2.5vh 0 10vh;
     margin: 0 auto;
+    align-items: stretch;
 }
 
 .listing-tile {
-    width: 31%;
     display: flex;
     flex-direction: column;
     position: relative;
