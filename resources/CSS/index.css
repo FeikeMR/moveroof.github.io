@@ -275,7 +275,7 @@ p.detail {
 /* Floating label effect for placeholder and label transitions. */
 .input-field::placeholder,
 .text-field::placeholder {
-    color: transparent;
+    color: #787878;
 }
 
 /* If not empty or focused, push label up. */
@@ -1423,10 +1423,15 @@ p.detail {
     margin: 8px 0;
 }
 
-.listing-data-row p#name {
+.listing-data-name {
     color: #787878;
     margin-right: 5%;
     flex-basis: 40%;
+}
+
+.listing-data-var {
+    max-width: 55%;
+    text-align: right;
 }
 
 #seperation-line-horiz {
