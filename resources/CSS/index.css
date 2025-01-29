@@ -383,7 +383,7 @@ p.detail {
         position: fixed;
         width: 100%;
         height: 9vh;
-        padding: 8px 8px;
+        padding: 4px 3%;
         gap: 5px;
     }
 
@@ -397,6 +397,11 @@ p.detail {
 
     #header-buttons h5 {
         font-size: 16px;
+    }
+
+    #header-center-logo {
+        max-width: 100%;
+        height: auto;
     }
 
     #menu-icon {
@@ -862,7 +867,7 @@ p.detail {
         justify-content: center;
         align-items: center;
         position: relative;
-        min-height: 97vh;
+        min-height: 98vh;
         height: auto;
         width: 100%;
         gap: 20px;
@@ -1047,6 +1052,7 @@ p.detail {
 
 .listing-tile {
     display: flex;
+    height: 100%;
     flex-direction: column;
     position: relative;
     gap: 8px;
@@ -1059,6 +1065,8 @@ p.detail {
 
 .listing-tile-image {
     width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 12px;
 }
 
@@ -1123,7 +1131,7 @@ p.detail {
     }
 
     .listing-tile-data {
-        justify-content: space-evenly;
+        justify-content: flex-start;
         gap: 2%;
     }
 
@@ -2057,7 +2065,7 @@ p.detail {
     flex-direction: column;
     position: relative;
     padding: 1vh;
-    gap: 7px;
+    gap: 15px;
     width: 60%;
     margin: 9vh auto;
 }
@@ -2079,11 +2087,10 @@ p.detail {
 #about-page {
     display: flex;
     flex-direction: column;
-    gap: 7px;
     width: 60%;
     padding: 3vh 0;
     margin: 0 auto;
-    gap: 10px;
+    gap: 20px;
 }
 
 #about-intro {
@@ -2091,7 +2098,7 @@ p.detail {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 60%;
+    width: 75%;
     margin: 0 auto;
     font-size: 24px;
 }
