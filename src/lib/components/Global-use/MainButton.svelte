@@ -1,5 +1,6 @@
 <script>
-    // Currently no JS needed.
+    export let id = "";
+    export let type = "button";
 </script>
     
 <style>
@@ -7,7 +8,8 @@
     border: 1px solid #333333;
     border-radius: 6px;
     color: #333333;
-    font-size: 18px;
+    background-color: transparent;
+    font-size: 1.2em;
     font-weight: 600;
     padding: 0.5em 0.7em;
     text-decoration: none;
@@ -15,11 +17,12 @@
 }
   
 .main-button:hover {
-    background-color: #D35D0E;
+    background-color: #F86D11;
+    color: #F4F4F4;
     cursor: pointer;
 }
 </style>
   
-<button class="main-button">
+<button class="main-button" {...$$restProps} on:click>
     <slot>Click me</slot>
 </button>  

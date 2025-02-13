@@ -4,27 +4,26 @@
 
 <svelte:head>
   <title>Algemene voorwaarden - MoveRoof</title>
-  <link rel="icon" href="/assets/visuals/logos/logo-favicon.svg" type="image/svg+xml">
 </svelte:head>
   
 <style>
+  .article {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1vh;
+    gap: 15px;
+    width: 60%;
+    margin: 9vh auto;
+  }
+
+  /* Optional responsiveness */
+  @media (max-width: 768px) {
     .article {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding: 1vh;
-      gap: 15px;
-      width: 60%;
-      margin: 9vh auto;
+      width: 90%;
+      margin-top: 10vh;
     }
-  
-    /* Optional responsiveness */
-    @media (max-width: 768px) {
-      .article {
-        width: 90%;
-        margin-top: 10vh;
-      }
-    }
+  }
 </style>
   
 <section class="article">

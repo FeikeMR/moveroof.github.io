@@ -2,6 +2,8 @@
   import PackagesOverview from '$lib/components/PackagesOverview.svelte';
   import ProcessCarousel from '$lib/components/ProcessCarousel.svelte';
   import FAQ from '$lib/components/FAQ.svelte';
+  import SecondaryButton from '$lib/components/Global-use/SecondaryButton.svelte';
+  import { goto } from '$app/navigation';
 
   function onChoosePackage(e) {
     const { packageName } = e.detail;
@@ -11,13 +13,11 @@
 
 <svelte:head>
   <title>Home - MoveRoof</title>
-  <link rel="icon" href="/assets/visuals/logos/logo-favicon.svg" type="image/svg+xml">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </svelte:head>
 
 <style>
   /* ================= HERO SECTION CSS ================= */
-  #hero-container {
+  .hero-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,7 +30,7 @@
     overflow: hidden;
   }
 
-  #hero-container::before {
+  .hero-container::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -39,106 +39,92 @@
     z-index: 0;
   }
 
-  #hero-container > * {
+  .hero-container > * {
     width: auto;
     background: transparent;
     z-index: 1;
   }
 
-  #hero-container img {
+  .hero-container img {
     width: auto;
     height: 75%;
   }
 
-  #hero-text-container {
+  .hero-text {
     display: flex;
     flex-direction: column;
     max-width: 40%;
   }
 
-  #hero-text-container h1 {
+  .hero-text h1 {
     margin-bottom: 10px;
   }
 
-  #hero-text-container p {
+  .hero-text p {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
   }
 
-  #hero-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
   @media (max-width: 768px) {
-    #hero-container {
+    .hero-container {
       flex-direction: column;
       height: auto;
       text-align: center;
       padding: 10vh 0 2vh 0;
     }
 
-    #hero-text-container {
+    .hero-text {
       max-width: 90%;
       margin: 0 auto;
     }
 
-    #hero-text-container h1 {
+    .hero-text h1 {
       font-size: 36px;
-      word-spacing: 0%;
+      word-spacing: 0;
       line-height: 1.1;
     }
 
-    #hero-text-container p {
+    .hero-text p {
       font-size: 16px;
       font-weight: 400;
       margin-bottom: 10px;
     }
 
-    #hero-buttons {
-      flex-direction: row;
-      align-items: center;
-      gap: 5px;
-    }
-
-    #hero-buttons .main-button {
+    .button-row .main-button {
       font-size: 18px;
     }
 
-    #hero-container img {
-      width: 80%;
+    .hero-container img {
+      width: 90%;
       height: auto;
       margin-top: 20px;
     }
   }
 </style>
 
-<!-- ================= HERO SECTION ================= -->
-<section id="hero-container">
-  <div id="hero-text-container">
+<section class="hero-container">
+  <div class="hero-text">
     <h1 class="secondary">Jouw huis. Jouw deal.</h1>
     <p>
-      Verkopen of kopen via MoveRoof is eenvoudig, betaalbaar en transparant. Wij zijn een
-      <b>ongebonden internetmakelaar</b> en dus volledig onafhankelijk in jouw voordeel.
+      (Ver)kopen via MoveRoof is transparant en eenvoudig. Als <b>onafhankelijke makelaar</b> brengen we de verandering die de markt écht nodig heeft.
     </p>
     <p>
-      Geen courtages, geen hoge kosten, geen elleboog wrijven en direct contact met de kopers.
-      Elke verdiende euro gaat terug in de dienstverlening, dit om échte verandering teweeg te brengen!
+      Geen hoge kosten of stiekeme handjeklap, maar direct contact met kopers en een heldere, eerlijke aanpak. 
+      Wij zetten ons in om echt het verschil te maken — doe je mee?
     </p>
     <p><b>Eerlijk vastgoed, zoals het hoort.</b></p>
-    <div id="hero-buttons">
-      <h4 class="main-button" id="request-listing-form-btn-hero">
-        <a href="public/zelf-verkopen.html" style="color: inherit;">Vergelijk pakketten</a>
-      </h4>
-      <h4 class="main-button">
-        <a href="/public/aanbod.html">Bekijk ons aanbod</a>
-      </h4>
+    <div class="button-row">
+      <SecondaryButton id="hero-button" on:click={() => goto('/zelf-verkopen')}>
+        Zelf verkopen
+      </SecondaryButton>
+      <SecondaryButton id="hero-button" on:click={() => goto('/aanbod')}>
+        Bekijk ons aanbod
+      </SecondaryButton>
     </div>
   </div>
   <img
-    src="/assets/visuals/general/phone-3dmockup.svg"
+    src="/visuals/general/phone-3dmockup.svg"
     alt="house and phone illustration"
   />
 </section>

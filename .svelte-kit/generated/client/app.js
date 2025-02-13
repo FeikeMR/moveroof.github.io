@@ -18,12 +18,12 @@ export const server_loads = [];
 export const dictionary = {
 		"/": [2],
 		"/aanbod": [3],
-		"/about-moveroof": [4],
-		"/buying-experience": [5],
+		"/koop-begeleiding": [4],
+		"/over-moveroof": [5],
 		"/privacy-statement": [6],
-		"/sales-packages": [7],
-		"/selling-experience": [8],
-		"/terms-of-service": [9]
+		"/terms-of-service": [7],
+		"/verkoop-begeleiding": [8],
+		"/zelf-verkopen": [9]
 	};
 
 export const hooks = {

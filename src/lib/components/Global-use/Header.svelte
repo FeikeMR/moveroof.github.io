@@ -1,189 +1,165 @@
 <script>
   import { onMount, createEventDispatcher } from 'svelte';
+  import { afterNavigate } from '$app/navigation';  /* <-- 1) Import afterNavigate */
   import SecondaryButton from '$lib/components/Global-use/SecondaryButton.svelte';
 
-  // Create a dispatcher for sending custom events (e.g., openDealPopup)
   const dispatch = createEventDispatcher();
 
   // State variables
   let isScrolled = false;
-  let menuIconSrc = '/assets/visuals/icons/menu-icon-light.svg';
-  let logoSrc = '/assets/visuals/logos/full-logo/full-logo-yellow-orange-light.svg';
+  let menuIconSrc = '/visuals/icons/menu-icon-light.svg';
+  let logoSrc = '/visuals/logos/full-logo/full-logo-yellow-orange-light.svg';
   let menuTextColor = '#F4F4F4';
   let bgColor = 'transparent';
   let boxShadow = 'none';
 
-  // Decide if the header should be transparent by defaul.
+  // Decide if we start with a transparent header
   function useTransparentHeaderByDefault() {
     const path = window.location.pathname;
     return (
       path === '/' ||
-      path === '/home.html' ||
-      path.startsWith('/listings/')
+      path === '/home' ||
+      path.startsWith('/aanbod/')
     );
   }
 
-  //Update the header’s style (bg color, logo, icon) based on scroll state.
+  // Update header styles based on scroll state
   function updateHeaderStyles() {
     if (isScrolled) {
-      // When user has scrolled down
+      // SCROLLED style
       bgColor = '#F4F4F4';
       boxShadow = '0px 4px 6px rgba(0,0,0,0.1)';
-      menuIconSrc = '/assets/visuals/icons/menu-icon-dark.svg';
+      menuIconSrc = '/visuals/icons/menu-icon-dark.svg';
       menuTextColor = '#333333';
-      logoSrc = '/assets/visuals/logos/full-logo/full-logo-yellow-orange-dark.svg';
+      logoSrc = '/visuals/logos/full-logo/full-logo-yellow-orange-dark.svg';
     } else {
-      // Top of the page
+      // NOT scrolled style => check if page should be transparent or #333
       boxShadow = 'none';
-
-      if (useTransparentHeaderByDefault()) {
-        bgColor = 'transparent';
-      } else {
-        bgColor = '#333333';
-      }
-
-      menuIconSrc = '/assets/visuals/icons/menu-icon-light.svg';
+      bgColor = useTransparentHeaderByDefault() ? 'transparent' : '#333333';
+      menuIconSrc = '/visuals/icons/menu-icon-light.svg';
       menuTextColor = '#F4F4F4';
-      logoSrc = '/assets/visuals/logos/full-logo/full-logo-yellow-orange-light.svg';
+      logoSrc = '/visuals/logos/full-logo/full-logo-yellow-orange-light.svg';
     }
   }
 
-  // Event handler: check if scrolled > 0, then update styles.
+  // Check current scroll position
   function handleScroll() {
-    isScrolled = window.scrollY > 0;
+    isScrolled = window.scrollY > 0; // true if user scrolled down
     updateHeaderStyles();
   }
 
-  // Called when user clicks “MENU” (left side)
+  // Fired by clicking "MENU"
   function openMenuDrawer() {
-    dispatch('openMenu'); // parent or layout can listen to this event
+    dispatch('openMenu');
   }
 
-  // Called when user clicks the “Kies jouw deal” button
+  // Fired by clicking "Kies jouw deal" button
   function handleDealClick() {
-    // For now, just dispatch an event that a parent can listen for
     dispatch('openDealPopup');
   }
 
-  // onMount lifecycle: set initial style, watch scroll
+  // onMount: set initial styles & attach scroll listener
   onMount(() => {
-    // If not transparent by default, set dark background
+    // If not a "transparent page," use #333 from the start
     if (!useTransparentHeaderByDefault()) {
       bgColor = '#333333';
     }
-    // Add scroll listener
     window.addEventListener('scroll', handleScroll);
-    // Run an initial scroll check in case user is not at top
+    // Check if page is scrolled at mount
     handleScroll();
 
-    // Cleanup when component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   });
+
+  // 2) Re-check after navigation to fix stale header background
+  afterNavigate(() => {
+    // Possibly reset scroll detection if you want “fresh page” style:
+    //    window.scrollY is probably 0, but let's do:
+    isScrolled = window.scrollY > 0;
+    updateHeaderStyles();
+  });
 </script>
 
 <style>
-  #header-container {
+  .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 9vh;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0% 7%;
+    padding: 0 7%;
     z-index: 999;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
-
-  #header-container a {
+  .header a {
     height: 100%;
     display: flex;
     align-items: center;
   }
-
-  #header-logo {
-    width: auto;
+  .header__logo {
     height: 80%;
     transition: height 0.3s ease;
   }
-
-  /* “MENU” click area */
-  #menu-trigger {
+  .header__menu {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 13px;
     cursor: pointer;
   }
-  #menu-trigger p {
-    margin: 0; /* remove default p margin */
+  .header__menu p {
+    margin: 0;
   }
-
-  #icon-menu {
+  .header__menu-icon {
     width: 35px;
     height: auto;
   }
-
-  /* Right side button group */
-  #header-button-group {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  /* Simple responsiveness */
   @media (max-width: 768px) {
-    #header-container {
+    .header {
       padding: 5px 2.5%;
       gap: 5px;
     }
-    #menu-trigger {
+    .header__menu {
       gap: 8px;
     }
-    #header-button-group :global(button) {
-      font-size: 16px;
+    .header__logo {
+      height: 70%;
     }
-    #header-logo {
-      height: 75%;
-    }
-    #icon-menu {
+    .header__menu-icon {
       width: 20px;
     }
   }
 </style>
 
 <header
-  id="header-container"
+  class="header"
   style="background-color: {bgColor}; box-shadow: {boxShadow};"
 >
-  <!-- Left side: menu trigger -->
-  <div id="menu-trigger" on:click={openMenuDrawer} style="color: {menuTextColor};">
+  <!-- Left side: Menu trigger -->
+  <div
+    class="header__menu"
+    on:click={openMenuDrawer}
+    style="color: {menuTextColor};"
+  >
     <img
-      id="icon-menu"
-      src="{menuIconSrc}"
+      class="header__menu-icon"
+      src={menuIconSrc}
       alt="Menu Icon"
     />
     <p style="color: {menuTextColor}">MENU</p>
   </div>
 
-  <!-- Center: logo -->
-  <a href="/svelte/home.html">
-    <img
-      id="header-logo"
-      src="{logoSrc}"
-      alt="Full Logo"
-    />
+  <!-- Center: Logo (clicking goes to home) -->
+  <a href="/">
+    <img class="header__logo" src={logoSrc} alt="Full Logo" />
   </a>
 
-  <!-- Right side: use your SecondaryButton component -->
-  <div id="header-button-group">
-    <SecondaryButton
-      text="Kies jouw deal"
-      on:click={handleDealClick}
-    />
-  </div>
+  <!-- Right side: Deal button -->
+  <SecondaryButton id="header-button" on:click={handleDealClick}>
+    Kies jouw deal
+  </SecondaryButton>
 </header>

@@ -1,154 +1,145 @@
 <script>
+  import SecondaryButton from '$lib/components/Global-use/SecondaryButton.svelte';
   import { onMount } from 'svelte';
 
   // BACKEND URL for submissions (adjust as needed)
   const BASE_URL = 'https://moveroofgithubio-production.up.railway.app';
 
-  // Reactive variables controlling what’s displayed
+  // Reactive state for popups
   let showOverlay = false;
 
-  // For listing request popups
-  let showListingPopup = false;
-  let showThankyouListing = false;
+  // Listing popup state
+  let showListing = false;
+  let showThankYouListing = false;
 
-  // For feedback popups
-  let showFeedbackPopup = false;
-  let showThankyouFeedback = false;
+  // Feedback popup state
+  let showFeedback = false;
+  let showThankYouFeedback = false;
 
-  // The form data for listing
-  let listingName = '';
-  let listingEmail = '';
-  let listingPhone = '';
-  let listingAddress = '';
-  let listingPackage = '';
+  // Listing form data
+  let nameListing = '';
+  let emailListing = '';
+  let phoneListing = '';
+  let addressListing = '';
+  let packageListing = '';
 
-  // The form data for feedback
-  let feedbackName = '';
-  let feedbackEmail = '';
-  let feedbackMessage = '';
+  // Feedback form data
+  let nameFeedback = '';
+  let emailFeedback = '';
+  let messageFeedback = '';
 
-  // If you want to open the listing popup with a chosen package (e.g., “Starter”)
+  // Open listing popup (optionally with a package pre-selected)
   export function openListingPopup(packageName = '') {
-    listingPackage = packageName;
-    showListingPopup = true;
+    packageListing = packageName;
+    showListing = true;
     showOverlay = true;
-    showThankyouListing = false;
+    showThankYouListing = false;
   }
 
-  // If you want to open the feedback popup
+  // Open feedback popup
   export function openFeedbackPopup() {
-    showFeedbackPopup = true;
+    showFeedback = true;
     showOverlay = true;
-    showThankyouFeedback = false;
+    showThankYouFeedback = false;
   }
 
-  // Hide everything
-  function closeAllPopups() {
+  // Hide all popups
+  function closeAll() {
     showOverlay = false;
-    showListingPopup = false;
-    showThankyouListing = false;
-    showFeedbackPopup = false;
-    showThankyouFeedback = false;
+    showListing = false;
+    showThankYouListing = false;
+    showFeedback = false;
+    showThankYouFeedback = false;
   }
 
-  /**
-   * LISTING FORM submission
-   * Called on <form> submission for the listing.
-   */
+  // Listing form submission
   async function submitListingForm(event) {
     event.preventDefault();
 
     const formData = new URLSearchParams();
-    formData.append('naam', listingName);
-    formData.append('email', listingEmail);
-    formData.append('telefoon', listingPhone);
-    formData.append('adres', listingAddress);
-    formData.append('packageSelect', listingPackage);
+    formData.append('naam', nameListing);
+    formData.append('email', emailListing);
+    formData.append('telefoon', phoneListing);
+    formData.append('adres', addressListing);
+    formData.append('packageSelect', packageListing);
 
     try {
-      const response = await fetch(`${BASE_URL}/submit-listing-request`, {
+      const res = await fetch(`${BASE_URL}/submit-listing-request`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData
       });
 
-      if (response.ok) {
-        // Success: hide listing popup, show thank-you
-        showListingPopup = false;
-        showThankyouListing = true;
+      if (res.ok) {
+        // Success: hide listing form, show thank-you popup
+        showListing = false;
+        showThankYouListing = true;
       } else {
-        console.error('Form submission failed:', response.status);
+        console.error('Form submission failed:', res.status);
       }
     } catch (err) {
       console.error('Error during form submission:', err);
     }
   }
 
-  /**
-   * FEEDBACK FORM submission
-   * Called on <form> submission for feedback.
-   */
+  // Feedback form submission
   async function submitFeedbackForm(event) {
     event.preventDefault();
 
     const formData = new URLSearchParams();
-    formData.append('naam', feedbackName);
-    formData.append('email', feedbackEmail);
-    formData.append('bericht', feedbackMessage);
+    formData.append('naam', nameFeedback);
+    formData.append('email', emailFeedback);
+    formData.append('bericht', messageFeedback);
 
     try {
-      const response = await fetch(`${BASE_URL}/submit-feedback`, {
+      const res = await fetch(`${BASE_URL}/submit-feedback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData
       });
 
-      if (response.ok) {
-        // Success: hide feedback popup, show thank-you
-        showFeedbackPopup = false;
-        showThankyouFeedback = true;
+      if (res.ok) {
+        // Success: hide feedback form, show thank-you popup
+        showFeedback = false;
+        showThankYouFeedback = true;
       } else {
-        console.error('Feedback submission failed:', response.status);
+        console.error('Feedback submission failed:', res.status);
       }
     } catch (err) {
       console.error('Error during feedback submission:', err);
     }
   }
 
-  // Reset forms when we close popups. If you do want them to persist, remove
+  // Reset both forms
   function resetForms() {
-    listingName = '';
-    listingEmail = '';
-    listingPhone = '';
-    listingAddress = '';
-    listingPackage = '';
-    feedbackName = '';
-    feedbackEmail = '';
-    feedbackMessage = '';
+    nameListing = '';
+    emailListing = '';
+    phoneListing = '';
+    addressListing = '';
+    packageListing = '';
+    nameFeedback = '';
+    emailFeedback = '';
+    messageFeedback = '';
   }
 
-  // Cleanup forms on mount/unmount if you like
   onMount(() => {
-    // No special code here yet
     return () => {
-      // e.g., reset forms if you want
       resetForms();
     };
   });
 
-  // Called when we click the overlay to close everything
+  // When clicking the overlay, close all popups if the overlay itself was clicked
   function onOverlayClick(e) {
-    // If user clicked the overlay (not a child), close
     if (e.currentTarget === e.target) {
-      closeAllPopups();
+      closeAll();
       resetForms();
     }
   }
 </script>
 
 <style>
-  /* BASIC STYLES FOR OVERLAY */
-  #popup-overlay {
+  /* Overlay styles */
+  .overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -158,12 +149,11 @@
     display: none;
     z-index: 1000;
   }
-  /* Show overlay when visible */
-  .active-overlay {
+  .overlay.active {
     display: block;
   }
 
-  /* Generic popup container */
+  /* Popup container */
   .popup {
     position: fixed;
     top: 50%;
@@ -182,50 +172,41 @@
     max-height: 90vh;
     overflow-y: auto;
   }
-  /* Hide popups by default */
   .hidden {
     display: none;
   }
 
-  /* The listing request popup specifically */
-  #request-listing-popup {
-    background-color: #E6E5E1;
-  }
-  #give-feedback-popup {
-    background-color: #E6E5E1;
-  }
-  /* Thank-you popups too */
-  #thankyou-listing-request-popup,
-  #thankyou-feedback-popup {
+  /* Use a common background for all popups */
+  .popup.listing,
+  .popup.feedback,
+  .popup.thankyou {
     background-color: #E6E5E1;
   }
 
-  /* Forms */
-  .listing-request-form,
-  .give-feedback-form {
+  /* Form styling */
+  .form {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
-  .input-row {
+  .row {
     display: flex;
     flex-direction: row;
     gap: 10px;
     width: 100%;
   }
-  .input-group {
+  .group {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin: 15px 0 5px;
     width: 100%;
   }
-  .input-name {
+  .label {
     font-size: 18px;
     font-weight: 400;
-    color: #333333;
+    color: #333;
     position: absolute;
     top: 50%;
     left: 10px;
@@ -234,9 +215,8 @@
     transition: all 0.3s ease;
     opacity: 0;
   }
-
-  .input-field,
-  .text-field {
+  .input,
+  .textarea {
     font-size: 16px;
     border: none;
     outline: none;
@@ -244,227 +224,184 @@
     border-radius: 8px;
     padding: 0.6em;
     width: 100%;
-    color: #333333;
+    color: #333;
   }
-  .text-field {
+  .textarea {
     margin-bottom: 15px;
     height: 7.5em;
   }
-
-  .input-field::placeholder,
-  .text-field::placeholder {
+  .input::placeholder,
+  .textarea::placeholder {
     color: #787878;
   }
-  .input-field:focus + .input-name,
-  .input-field:not(:placeholder-shown) + .input-name,
-  .text-field:focus + .input-name,
-  .text-field:not(:placeholder-shown) + .input-name {
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label,
+  .textarea:focus + .label,
+  .textarea:not(:placeholder-shown) + .label {
     top: 0;
     transform: translateY(-100%);
     font-size: 0.9em;
     opacity: 1;
   }
-  .input-field:focus::placeholder,
-  .text-field:focus::placeholder {
+  .input:focus::placeholder,
+  .textarea:focus::placeholder {
     opacity: 0;
   }
 
-  .submit-button {
-    margin-top: 15px;
-    align-self: flex-start;
-    background-color: #F86D11;
-    color: #fff;
-    border: none;
-    padding: 0.6em 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .submit-button:hover {
-    background-color: #e85b08;
-  }
-
-  /* Titles and headings inside popups */
-  .secondary {
-    color: #f86d11;
-  }
-
   @media (max-width: 768px) {
-    .input-field::placeholder,
-    .text-field::placeholder {
+    .input::placeholder,
+    .textarea::placeholder {
       font-size: 0.85em;
     }
   }
 </style>
 
-<!-- The overlay (conditionally shown) -->
+<!-- Overlay (conditionally visible) -->
 <div
-  id="popup-overlay"
-  class="{showOverlay ? 'active-overlay' : ''}"
+  class="overlay {showOverlay ? 'active' : ''}"
   on:click={onOverlayClick}
 ></div>
 
 <!-- 1) Listing Request Popup -->
-<div
-  id="request-listing-popup"
-  class="popup {showListingPopup ? '' : 'hidden'}"
->
+<div class="popup listing {showListing ? '' : 'hidden'}">
   <h3 class="secondary">Verkopen via MoveRoof</h3>
-  <p>Breng verandering in de markt teweeg met een ongebonden makelaar en bespaar duizenden euro's.</p>
-
-  <form class="listing-request-form" on:submit|preventDefault={submitListingForm}>
+  <p>
+    Breng verandering in de markt teweeg met een ongebonden makelaar en bespaar
+    duizenden euro's.
+  </p>
+  <form class="form" on:submit|preventDefault={submitListingForm}>
     <!-- Name -->
-    <div class="input-group">
+    <div class="group">
       <input
-        class="input-field"
+        class="input"
         type="text"
-        bind:value={listingName}
+        bind:value={nameListing}
         required
         placeholder="Naam"
       />
-      <label class="input-name">Naam</label>
+      <label class="label">Naam</label>
     </div>
-
     <!-- Email & Phone -->
-    <div class="input-row">
-      <div class="input-group">
+    <div class="row">
+      <div class="group">
         <input
-          class="input-field"
+          class="input"
           type="email"
-          bind:value={listingEmail}
+          bind:value={emailListing}
           required
           placeholder="E-mailadres"
         />
-        <label class="input-name">E-mail</label>
+        <label class="label">E-mail</label>
       </div>
-      <div class="input-group">
+      <div class="group">
         <input
-          class="input-field"
+          class="input"
           type="tel"
-          bind:value={listingPhone}
+          bind:value={phoneListing}
           placeholder="Tel nr - optioneel"
         />
-        <label class="input-name">Tel nr - optioneel</label>
+        <label class="label">Tel nr - optioneel</label>
       </div>
     </div>
-
     <!-- Address -->
-    <div class="input-group">
+    <div class="group">
       <input
-        class="input-field"
+        class="input"
         type="text"
-        bind:value={listingAddress}
+        bind:value={addressListing}
         required
         placeholder="Adres - Straat, nummer en plaats"
       />
-      <label class="input-name">Adres - Straat, nummer en plaats</label>
+      <label class="label">Adres - Straat, nummer en plaats</label>
     </div>
-
     <!-- Package Select -->
-    <div class="input-group">
-      <select
-        class="input-field"
-        bind:value={listingPackage}
-        required
-      >
+    <div class="group">
+      <select class="input" bind:value={packageListing} required>
         <option value="" disabled selected hidden>Kies een deal</option>
         <option value="Starter">Starter - €395,-</option>
         <option value="Premium">Premium - €850,-</option>
         <option value="All-In">All-In - €1.050,-</option>
       </select>
     </div>
-
     <br />
-
-    <button class="submit-button" type="submit">
-      Start met verkopen!
-    </button>
+    <SecondaryButton type="submit">
+      Start de verkoop!
+    </SecondaryButton>
   </form>
 </div>
 
-<!-- 2) Thank you popup (listing) -->
-<div
-  id="thankyou-listing-request-popup"
-  class="popup {showThankyouListing ? '' : 'hidden'}"
->
+<!-- 2) Thank-You Popup (Listing) -->
+<div class="popup thankyou {showThankYouListing ? '' : 'hidden'}">
   <h4 class="secondary">Bedankt voor de aanvraag! Oprecht!</h4>
   <br />
   <p>
-    Dat je het vertrouwen in mij en MoveRoof hebt om je woning met ons te delen vind ik onwijs tof.
+    Dat je het vertrouwen in mij en MoveRoof hebt om je woning met ons te delen
+    vind ik onwijs tof.
   </p>
   <br />
   <p>
-    Het vertrouwen is mij onwijs veel waard, dankjewel hiervoor! We gaan er wat moois van maken samen.
+    Het vertrouwen is mij onwijs veel waard, dankjewel hiervoor! We gaan er wat
+    moois van maken samen.
   </p>
   <br />
   <p>Feike Leemkuil.</p>
 </div>
 
 <!-- 3) Feedback Popup -->
-<div
-  id="give-feedback-popup"
-  class="popup {showFeedbackPopup ? '' : 'hidden'}"
->
+<div class="popup feedback {showFeedback ? '' : 'hidden'}">
   <h3 class="secondary">Feedback delen</h3>
   <p>
-    Heb je suggesties of feedback op MoveRoof en de website en/of service?
-    Deel het hieronder. Waardeer het oprecht!
+    Heb je suggesties of feedback op MoveRoof en de website en/of service? Deel het
+    hieronder. Waardeer het oprecht!
   </p>
-
-  <form class="give-feedback-form" on:submit|preventDefault={submitFeedbackForm}>
-    <div class="input-row">
-      <div class="input-group">
+  <form class="form" on:submit|preventDefault={submitFeedbackForm}>
+    <div class="row">
+      <div class="group">
         <input
-          class="input-field"
+          class="input"
           type="text"
-          bind:value={feedbackName}
+          bind:value={nameFeedback}
           required
           placeholder="Naam"
         />
-        <label class="input-name">Naam</label>
+        <label class="label">Naam</label>
       </div>
-
-      <div class="input-group">
+      <div class="group">
         <input
-          class="input-field"
+          class="input"
           type="email"
-          bind:value={feedbackEmail}
+          bind:value={emailFeedback}
           placeholder="E-mailadres"
         />
-        <label class="input-name">E-mail - optioneel</label>
+        <label class="label">E-mail - optioneel</label>
       </div>
     </div>
-
-    <div class="input-group">
+    <div class="group">
       <textarea
-        class="text-field"
-        bind:value={feedbackMessage}
+        class="textarea"
+        bind:value={messageFeedback}
         placeholder="Deel hier je bericht..."
       ></textarea>
-      <label class="input-name">Je feedback/suggestie</label>
+      <label class="label">Je feedback/suggestie</label>
     </div>
-
-    <button class="submit-button" type="submit">
+    <SecondaryButton type="submit">
       Feedback versturen
-    </button>
+    </SecondaryButton>
   </form>
 </div>
 
-<!-- 4) Thank you popup (feedback) -->
-<div
-  id="thankyou-feedback-popup"
-  class="popup {showThankyouFeedback ? '' : 'hidden'}"
->
+<!-- 4) Thank-You Popup (Feedback) -->
+<div class="popup thankyou {showThankYouFeedback ? '' : 'hidden'}">
   <h4 class="secondary">Bedankt voor de feedback! Oprecht!</h4>
   <br />
   <p>
-    Dat je de tijd hebt genomen om je gedachtes en suggesties omtrent MoveRoof te 
+    Dat je de tijd hebt genomen om je gedachtes en suggesties omtrent MoveRoof te
     delen waardeer ik oprecht enorm. Dankjewel!
   </p>
   <br />
   <p>
-    Als je je contactgegevens hebt gedeeld hoop ik je nog te kunnen spreken 
-    en nogmaals te bedanken. Anders bij deze: mijn dankbaarheid is groot!
+    Als je je contactgegevens hebt gedeeld hoop ik je nog te kunnen spreken en
+    nogmaals te bedanken. Anders bij deze: mijn dankbaarheid is groot!
   </p>
   <br />
   <p>Fijne dag en hopelijk spreken we elkaar nog eens.</p>

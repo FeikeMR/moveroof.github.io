@@ -1,348 +1,309 @@
 <script>
-  // Currently no JS needed.
+  // Your Svelte script logic (if any) goes here.
 </script>
 
 <style>
   /* Main footer container */
-  #footer-section {
+  .footer {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding: 20px;
-    background-color: #333333;
+    background-color: #333;
     gap: 25px;
   }
 
-  /* Brand Row (top row) */
-  #footer-row-top {
+  /* Top section with brand and icons */
+  .top {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 80%;
   }
-  #footer-brand-group {
+
+  /* Brand area (logo and slogan) */
+  .brand {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 15px;
   }
 
-  /* Two different logos: 'full' logo & 'icon' logo */
-  #footer-logo-full,
-  #footer-logo-icon {
+  .logo {
     width: auto;
     height: 60px;
   }
-
-  /* Full logo (visible on desktop), icon logo (visible on mobile) */
-  .footer-logo-full {
+  .logo-full {
     display: block;
   }
-  .footer-logo-icon {
+  .logo-icon {
     display: none;
   }
 
-  /* Slogan text */
-  .footer-white-text {
+  #slogan, #agent-type {
     color: #F4F4F4;
-    margin: 0; /* remove default <p> margin if needed */
-  }
-  #footer-brand-group p {
+    margin: 0;
     font-size: 24px;
     font-weight: 400;
-    margin-top: 10px; /* slight top offset */
+    margin-top: 10px;
   }
 
-  /* “Ongebonden makelaar” and funda icon row */
-  #footer-icon-row {
+  /* Icon row for “Ongebonden makelaar” and funda icon */
+  .icon-row {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 20px;
     margin-top: 10px;
   }
-  #footer-funda-icon {
+
+  #icon-funda {
     height: 30px;
     width: auto;
   }
 
   /* Divider line */
-  #footer-divider {
+  .divider {
     border: 0.5px solid #787878;
     width: 80%;
   }
 
-  /* The second row of the footer (selling, buying, about, contact) */
-  #footer-row-main {
+  /* Columns container */
+  .columns {
     display: flex;
     justify-content: space-between;
     width: 80%;
     gap: 20px;
   }
-  .footer-col {
+  .column {
     flex: 1;
   }
-
-  /* “Verkoop begeleiding” column */
-  #footer-col-selling ul,
-  #footer-col-buying ul,
-  #footer-col-about ul {
+  .column ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  #footer-col-selling li,
-  #footer-col-buying li,
-  #footer-col-about li {
+  .column li {
     margin-bottom: 15px;
   }
-
-  /* “Contact” column */
-  #footer-col-contact p {
-    margin-bottom: 15px;
-  }
-
-  /* Shared styles for each column’s heading */
-  .footer-col h3 {
+  .column h3 {
     font-size: 22px;
     color: #F86D11;
     margin-bottom: 10px;
   }
-
-  /* Footer link styles */
-  .footer-col a {
-    text-decoration: none;
+  .column a,
+  .column p {
     color: #F4F4F4;
+    text-decoration: none;
+  }
+  .column a:hover,
+  .bottom a:hover {
+    color: #F86D11;
+    cursor: pointer;
+  }
+  .column p {
+    margin-bottom: 15px;
   }
 
-  /* White bottom strip with links */
-  #footer-bottom-strip {
+  /* Bottom strip */
+  .bottom {
     width: 100%;
-    background-color: #333333;
+    background-color: #333;
     padding: 10px 20px;
     text-align: center;
   }
-  #footer-bottom-strip a {
+  .bottom a,
+  .bottom span {
+    color: #F4F4F4;
+    margin: 0 5px;
     text-decoration: none;
-    color: #F4F4F4;
-    margin: 0 5px;
-  }
-  #footer-bottom-strip span {
-    color: #F4F4F4;
-    margin: 0 5px;
   }
 
-  /* Responsive (mobile) */
+  /* Responsive styles */
   @media (max-width: 768px) {
-    #footer-row-top {
+    .top {
       flex-direction: column;
       align-items: center;
       width: 90%;
-      gap: 15px;
+      gap: 5px;
     }
-    #footer-row-main {
+    #slogan {
+      font-size: 24px;
+    }
+    #agent-type {
+      font-size: 20px;
+    }
+    .columns {
       flex-direction: column;
       align-items: center;
       width: 90%;
-      gap: 20px;
+      gap: 2em;
     }
-    .footer-col {
+    .column {
       width: 100%;
       text-align: center;
-      margin-bottom: 20px;
     }
-    #footer-divider {
+    .divider {
       width: 90%;
     }
-
-    /* Show icon logo on mobile, hide full logo */
-    .footer-logo-full {
+    /* On mobile, show the icon logo instead of the full logo */
+    .logo-full {
       display: none;
     }
-    .footer-logo-icon {
+    .logo-icon {
       display: block;
       height: 40px;
     }
   }
 </style>
 
-<footer id="footer-section">
-  <!-- Top row: brand + “Ongebonden makelaar” + funda icon -->
-  <div id="footer-row-top">
-    <div id="footer-brand-group">
+<footer class="footer">
+  <!-- Top section -->
+  <div class="top">
+    <div class="brand">
       <img
-        id="footer-logo-full"
-        class="footer-logo-full"
-        src="/assets/visuals/logos/full-logo/full-logo-yellow-orange-light.svg"
+        src="/visuals/logos/full-logo/full-logo-yellow-orange-light.svg"
         alt="Full MoveRoof Logo"
+        class="logo logo-full"
       />
       <img
-        id="footer-logo-icon"
-        class="footer-logo-icon"
-        src="/assets/visuals/logos/icon-logo/logo-icon-yellow-orange-light.svg"
+        src="/visuals/logos/icon-logo/logo-icon-yellow-orange-light.svg"
         alt="MoveRoof Icon Logo"
+        class="logo logo-icon"
       />
-      <p class="footer-white-text">Jouw huis. jouw deal</p>
+      <p id="slogan">Jouw huis. jouw deal</p>
     </div>
-
-    <div id="footer-icon-row">
-      <p class="footer-white-text">Ongebonden makelaar</p>
+    <div class="icon-row">
+      <p id="agent-type">Ongebonden makelaar</p>
       <img
-        id="footer-funda-icon"
-        src="/assets/visuals/icons/funda-icon.png"
+        src="/visuals/icons/funda-icon.png"
         alt="Funda logo icon"
+        id="icon-funda"
       />
     </div>
   </div>
 
-  <!-- Divider line -->
-  <div id="footer-divider"></div>
+  <!-- Divider -->
+  <div class="divider"></div>
 
-  <!-- Second row: 4 columns (selling, buying, about, contact) -->
-  <div id="footer-row-main">
-    <!-- 1) Verkoop begeleiding -->
-    <div class="footer-col" id="footer-col-selling">
-      <h3>Verkoop begeleiding</h3>
-      <ul>
-        <li>
-          <a
-            href="/svelte/verkoop-begeleiding.html#klaar-voor-verkoop"
-            class="footer-white-text"
-            >Klaar om te verkopen?</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/verkoop-begeleiding.html#vraagprijs-bepalen"
-            class="footer-white-text"
-            >De vraagprijs bepalen</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/verkoop-begeleiding.html#bezichtigingen-geven"
-            class="footer-white-text"
-            >Tips voor bezichtigingen</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/verkoop-begeleiding.html#pro-onderhandelingen"
-            class="footer-white-text"
-            >Onderhandelingen als een pro</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/verkoop-begeleiding.html#verkoopovereenkomst"
-            class="footer-white-text"
-            >De overeenkomst opstellen</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/verkoop-begeleiding.html#eindinspectie-tips"
-            class="footer-white-text"
-            >Tips voor de eindinspectie</a
-          >
-        </li>
-      </ul>
-    </div>
-
-    <!-- 2) Koop begeleiding -->
-    <div class="footer-col" id="footer-col-buying">
-      <h3>Koop begeleiding</h3>
-      <ul>
-        <li>
-          <a
-            href="/svelte/koop-begeleiding.html#kosten-woningbezit"
-            class="footer-white-text"
-            >Totale kosten woningaankoop</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/koop-begeleiding.html#verkoopmakelaar-begrijpen"
-            class="footer-white-text"
-            >Verkoopmakelaars begrijpen</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/koop-begeleiding.html#slim-bieden"
-            class="footer-white-text"
-            >Slim bieden</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/koop-begeleiding.html#verplichte-documenten"
-            class="footer-white-text"
-            >Verplichte hypotheek documenten</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/koop-begeleiding.html#koopovereenkomst-taal"
-            class="footer-white-text"
-            >De taal van de koopovereenkomst</a
-          >
-        </li>
-        <li>
-          <a
-            href="/svelte/koop-begeleiding.html#belasting-info"
-            class="footer-white-text"
-            >De Belastingaangifte na de aankoop</a
-          >
-        </li>
-      </ul>
-    </div>
-
-    <!-- 3) Over ons -->
-    <div class="footer-col" id="footer-col-about">
+  <!-- Columns with navigation links -->
+  <div class="columns">
+    <!-- Column 1: Over ons -->
+    <div class="column">
       <h3>Over ons</h3>
       <ul>
         <li>
-          <a href="/svelte/zelf-verkopen.html" class="footer-white-text"
-            >Onze verkooppaketten</a
-          >
+          <a href="/zelf-verkopen">
+            Onze verkooppaketten
+          </a>
         </li>
         <li>
-          <a href="/svelte/over-moveroof.html" class="footer-white-text"
-            >Over MoveRoof</a
-          >
+          <a href="/over-moveroof">
+            Over MoveRoof
+          </a>
         </li>
         <li>
-          <a href="/svelte/verkoop-begeleiding.html" class="footer-white-text"
-            >Begeleiding bij verkopen</a
-          >
+          <a href="/verkoop-begeleiding">
+            Begeleiding bij verkopen
+          </a>
         </li>
         <li>
-          <a href="/svelte/koop-begeleiding.html" class="footer-white-text"
-            >Begeleiding bij aankopen</a
-          >
+          <a href="/koop-begeleiding">
+            Begeleiding bij aankopen
+          </a>
         </li>
       </ul>
     </div>
 
-    <!-- 4) Contact -->
-    <div class="footer-col" id="footer-col-contact">
+    <!-- Column 2: Verkoop begeleiding -->
+    <div class="column">
+      <h3>Verkoop begeleiding</h3>
+      <ul>
+        <li>
+          <a href="/verkoop-begeleiding#klaar-voor-verkoop">
+            Klaar om te verkopen?
+          </a>
+        </li>
+        <li>
+          <a href="/verkoop-begeleiding#vraagprijs-bepalen">
+            De vraagprijs bepalen
+          </a>
+        </li>
+        <li>
+          <a href="/verkoop-begeleiding#bezichtigingen-geven">
+            Tips voor bezichtigingen
+          </a>
+        </li>
+        <li>
+          <a href="/verkoop-begeleiding#pro-onderhandelingen">
+            Onderhandelingen als een pro
+          </a>
+        </li>
+        <li>
+          <a href="/verkoop-begeleiding#verkoopovereenkomst">
+            De overeenkomst opstellen
+          </a>
+        </li>
+        <li>
+          <a href="/verkoop-begeleiding#eindinspectie-tips">
+            Tips voor de eindinspectie
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Koop begeleiding -->
+    <div class="column">
+      <h3>Koop begeleiding</h3>
+      <ul>
+        <li>
+          <a href="/koop-begeleiding#kosten-woningbezit">
+            Totale kosten woningaankoop
+          </a>
+        </li>
+        <li>
+          <a href="/koop-begeleiding#verkoopmakelaar-begrijpen">
+            Verkoopmakelaars begrijpen
+          </a>
+        </li>
+        <li>
+          <a href="/koop-begeleiding#slim-bieden">
+            Slim bieden
+          </a>
+        </li>
+        <li>
+          <a href="/koop-begeleiding#verplichte-documenten">
+            Verplichte hypotheek documenten
+          </a>
+        </li>
+        <li>
+          <a href="/koop-begeleiding#koopovereenkomst-taal">
+            De taal van de koopovereenkomst
+          </a>
+        </li>
+        <li>
+          <a href="/koop-begeleiding#belasting-info">
+            De Belastingaangifte na de aankoop
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="column">
       <h3>Contact</h3>
-      <p class="footer-white-text">Email: moveroofnl@gmail.com</p>
-      <p class="footer-white-text">KvK nummer: 96269960</p>
-      <p class="footer-white-text">Persoon hierachter: Feike Leemkuil</p>
+      <p>Email: moveroofnl@gmail.com</p>
+      <p>KvK nummer: 96269960</p>
+      <p>Persoon hierachter: Feike Leemkuil</p>
     </div>
   </div>
 </footer>
 
-<!-- White bottom strip with small text links -->
-<div id="footer-bottom-strip">
-  <a href="/svelte/terms-of-service.html">Algemene voorwaarden</a>
+<!-- Bottom strip -->
+<div class="bottom">
+  <a href="/terms-of-service">Algemene voorwaarden</a>
   <span>|</span>
-  <a href="/svelte/privacy-statement.html">Privacy</a>
+  <a href="/privacy-statement">Privacy</a>
   <span>|</span>
   <a href="XXX">Cookies</a>
 </div>
