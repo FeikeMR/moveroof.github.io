@@ -49,7 +49,7 @@
   }
 
   // When a package button is clicked (from packagesdetail or packagesoverview)
-  function handleChoosePackage(e) {
+    function handleChoosePackage(e) {
     console.log("Package chosen:", e.detail.packageName);
     if (popupsRef && popupsRef.openListingPopup) {
       popupsRef.openListingPopup(e.detail.packageName);

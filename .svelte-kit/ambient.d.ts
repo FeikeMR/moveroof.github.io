@@ -28,6 +28,8 @@
 declare module '$env/static/private' {
 	export const EMAIL_USER: string;
 	export const EMAIL_PASS: string;
+	export const SUPABASE_URL: string;
+	export const SUPABASE_API: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
@@ -123,6 +125,8 @@ declare module '$env/dynamic/private' {
 	export const env: {
 		EMAIL_USER: string;
 		EMAIL_PASS: string;
+		SUPABASE_URL: string;
+		SUPABASE_API: string;
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
