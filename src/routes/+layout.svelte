@@ -1,10 +1,10 @@
 <script>
   import "/src/app.css";
 
-  import Header from "$lib/components/Global-use/Header.svelte";
-  import MenuDrawer from "$lib/components/Global-use/MenuDrawer.svelte";
-  import Footer from "$lib/components/Global-use/Footer.svelte";
-  import Popups from "$lib/components/Global-use/Popups.svelte";
+  import Header from "$lib/components/global/Header.svelte";
+  import MenuDrawer from "$lib/components/global/MenuDrawer.svelte";
+  import Footer from "$lib/components/global/Footer.svelte";
+  import Popups from "$lib/components/global/Popups.svelte";
   import { goto } from '$app/navigation';
 
   // Shared state for the menu drawer

@@ -1,5 +1,5 @@
 <script>
-  import SecondaryButton from '$lib/components/Global-use/SecondaryButton.svelte';
+  import SecondaryButton from '$lib/components/global/SecondaryButton.svelte';
   import { createEventDispatcher, onMount } from 'svelte';
 
   const dispatch = createEventDispatcher();

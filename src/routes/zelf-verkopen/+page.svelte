@@ -1,5 +1,5 @@
 <script>
-  import MainButton from '$lib/components/Global-use/MainButton.svelte';
+  import MainButton from '$lib/components/global/MainButton.svelte';
   import { goto } from '$app/navigation';
   import PackagesDetail from '$lib/components/PackagesDetail.svelte';
   function handleChoose(e) {

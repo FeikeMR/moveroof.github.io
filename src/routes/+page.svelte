@@ -2,7 +2,7 @@
   import PackagesOverview from '$lib/components/PackagesOverview.svelte';
   import ProcessCarousel from '$lib/components/ProcessCarousel.svelte';
   import FAQ from '$lib/components/FAQ.svelte';
-  import SecondaryButton from '$lib/components/Global-use/SecondaryButton.svelte';
+  import SecondaryButton from '$lib/components/global/SecondaryButton.svelte';
   import { goto } from '$app/navigation';
 
   function onChoosePackage(e) {

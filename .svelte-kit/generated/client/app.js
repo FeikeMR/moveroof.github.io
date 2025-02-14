@@ -18,9 +18,9 @@ export const server_loads = [];
 
 export const dictionary = {
 		"/": [2],
-		"/aanbod": [3],
-		"/api/listings": [4],
-		"/koop-begeleiding": [5],
+		"/aanbod": [~3],
+		"/koop-begeleiding": [4],
+		"/listings/[listing_id]": [~5],
 		"/over-moveroof": [6],
 		"/privacy-statement": [7],
 		"/terms-of-service": [8],
