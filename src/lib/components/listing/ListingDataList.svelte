@@ -98,14 +98,14 @@
   
       <div class="listing-data-row">
         <p class="listing-data-name">Woon oppervlak</p>
-        <p class="listing-data-var">{listing.living_space} m&sup2;</p>
+        <p class="listing-data-var">{listing.living_space}m&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
   
       <div class="listing-data-row">
         <p class="listing-data-name">Gebouwgebonden buitenruimte</p>
         <p class="listing-data-var">
-          {listing.external_addon_space ?? 0} m&sup2;
+          {listing.external_addon_space ?? 0}m&sup2;
         </p>
       </div>
       <div id="seperation-line-horiz"></div>
@@ -113,7 +113,7 @@
       <div class="listing-data-row">
         <p class="listing-data-name">Overige inpandige ruimte</p>
         <p class="listing-data-var">
-          {listing.internal_storage_space ?? 0} m&sup2;
+          {listing.internal_storage_space ?? 0}m&sup2;
         </p>
       </div>
       <div id="seperation-line-horiz"></div>
@@ -121,20 +121,20 @@
       <div class="listing-data-row">
         <p class="listing-data-name">Externe bergruimte</p>
         <p class="listing-data-var">
-          {listing.external_storage_space ?? 0} m&sup2;
+          {listing.external_storage_space ?? 0}m&sup2;
         </p>
       </div>
       <div id="seperation-line-horiz"></div>
   
       <div class="listing-data-row">
         <p class="listing-data-name">Perceel</p>
-        <p class="listing-data-var">{listing.plot_size} m&sup2;</p>
+        <p class="listing-data-var">{listing.plot_size}m&sup2;</p>
       </div>
       <div id="seperation-line-horiz"></div>
   
       <div class="listing-data-row">
         <p class="listing-data-name">Inhoud</p>
-        <p class="listing-data-var">{listing.volume} m&sup3;</p>
+        <p class="listing-data-var">{listing.volume}m&sup3;</p>
       </div>
       <div id="seperation-line-horiz"></div>
   
@@ -270,13 +270,17 @@
     .listing-data-list {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 50%;
     }
   
     .listing-data-category {
       display: flex;
       flex-direction: column;
       margin: 15px 0;
+    }
+
+    .listing-data-category h6 {
+      margin-bottom: 5px;
     }
   
     .listing-data-row {

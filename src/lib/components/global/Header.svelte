@@ -1,6 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from 'svelte';
-  import { afterNavigate } from '$app/navigation';  /* <-- 1) Import afterNavigate */
+  import { afterNavigate } from '$app/navigation';
   import SecondaryButton from '$lib/components/global/SecondaryButton.svelte';
 
   const dispatch = createEventDispatcher();

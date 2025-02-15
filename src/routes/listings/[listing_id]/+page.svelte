@@ -11,6 +11,14 @@
   let listing = data.listing;
   let images = data.images;
 
+  // Create a dynamic title based on listing columns from your database.
+  // Note: "street_number_suffix" is defined as NOT NULL so it might be an empty string.
+  $: dynamicTitle = `Huis te koop: ${listing.street} ${listing.street_number}${
+    listing.street_number_suffix && listing.street_number_suffix.trim() !== ''
+      ? ' ' + listing.street_number_suffix
+      : ''
+  } ${listing.city} - MoveRoof`;
+
   let popupRef; // reference to the ImagesPopup component
 
   // Open the images popup at a given index (triggered from ListingHero)
@@ -74,6 +82,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>{dynamicTitle}</title>
+</svelte:head>
+
 <!-- Hero at top -->
 <ListingHero
   {listing}
@@ -133,7 +145,7 @@
 .listing-description-interest {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   flex: 1;
   width: 45%;
 }

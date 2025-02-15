@@ -1,71 +1,76 @@
 <script>
-    // We'll take "listing" which has:
-    //   listing.description_header
-    //   listing.description_paragraph1
-    //   listing.description_paragraphs (could be multiple paragraphs in one text)
-  
-    export let listing;
-  
-    let showFull = false;
-  
-    // Split paragraphs on line-break if you'd like:
-    let moreParagraphs = listing.description_paragraphs
-      ? listing.description_paragraphs.split('\n').filter(Boolean)
-      : [];
-  </script>
-  
-  <div class="listing-description">
-    <h4>{listing.description_header}</h4>
-  
-    <!-- The first paragraph -->
-    <p>{listing.description_paragraph1}</p>
-  
-    <!-- Additional paragraphs toggle -->
+  import { cubicOut } from 'svelte/easing';
+
+  export let listing;
+  let showFull = false;
+
+  // Split paragraphs on line-break if necessary
+  let moreParagraphs = listing.description_paragraphs
+    ? listing.description_paragraphs.split('\n').filter(Boolean)
+    : [];
+
+  // Custom slide transition that only animates height (no opacity change)
+  function slideNoFade(node, { delay = 0, duration = 300, easing = cubicOut } = {}) {
+    const style = getComputedStyle(node);
+    const height = parseFloat(style.height);
+    return {
+      delay,
+      duration,
+      easing,
+      css: t => `overflow: hidden; height: ${t * height}px;`
+    };
+  }
+</script>
+
+<div class="listing-description">
+  <h4>{listing.description_header}</h4>
+  <p>{listing.description_paragraph1}</p>
+
+  {#if moreParagraphs.length > 0}
     {#if showFull}
-      {#each moreParagraphs as paragraph}
-        <p>{paragraph}</p>
-      {/each}
-      <!-- Hide button -->
-      <div class="hide-description" on:click={() => (showFull = false)}>
-        <img src="/visuals/icons/chevron-up.svg" alt="chevron up" />
-        <p class="secondary">Beschrijving inklappen</p>
+      <!-- The container holding both the extra paragraphs and the toggle -->
+      <div transition:slideNoFade>
+        {#each moreParagraphs as paragraph}
+          <p>{paragraph}</p>
+        {/each}
+        <div class="toggle hide-description" on:click={() => (showFull = false)}>
+          <img src="/visuals/icons/chevron-up-orange.svg" alt="chevron up" />
+          <p class="secondary">Beschrijving inklappen</p>
+        </div>
       </div>
     {:else}
-      <!-- Show button -->
-      {#if moreParagraphs.length > 0}
-        <div class="show-description" on:click={() => (showFull = true)}>
-          <img src="/visuals/icons/chevron-down.svg" alt="chevron down" />
-          <p class="secondary">Volledige beschrijving tonen</p>
-        </div>
-      {/if}
+      <!-- The "show" toggle (without a height transition) -->
+      <div class="toggle show-description" on:click={() => (showFull = true)}>
+        <img src="/visuals/icons/chevron-down-orange.svg" alt="chevron down" />
+        <p class="secondary">Volledige beschrijving tonen</p>
+      </div>
     {/if}
-  </div>
-  
-  <style>
-    .listing-description {
-      margin-bottom: 20px;
-    }
-  
-    .listing-description h4 {
-      margin-bottom: 8px;
-    }
-  
-    .listing-description p {
-      margin-bottom: 8px;
-      text-align: justify;
-    }
-  
-    .show-description,
-    .hide-description {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 5px;
-      cursor: pointer;
-    }
-  
-    .show-description img,
-    .hide-description img {
-      width: 20px;
-    }
-  </style>  
+  {/if}
+</div>
+
+<style>
+  .listing-description {
+    margin-bottom: 20px;
+  }
+
+  .listing-description h4 {
+    margin-bottom: 8px;
+  }
+
+  .listing-description p {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+
+  .toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .toggle img {
+    width: 20px;
+  }
+</style>

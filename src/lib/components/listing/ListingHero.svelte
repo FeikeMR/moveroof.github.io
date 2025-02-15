@@ -2,23 +2,23 @@
   import { onMount, createEventDispatcher } from 'svelte';
   import { getImageUrl } from '$lib/getImageUrl.js';
   
-  // Expects:
-  //   listing: the supabase listing object
-  //   heroImages: an array of image objects with { file_path, is_hero, hero_order, ... }
   export let listing;
   export let heroImages = [];
   
   let currentHeroIndex = 0;
   const dispatch = createEventDispatcher();
   
+  // Adjust the filter to accept multiple truthy values for is_hero
+  $: filteredHeroImages = heroImages
+    .filter(image => image.is_hero === true || image.is_hero === 'true' || image.is_hero === 1 || image.is_hero === '1')
+    .sort((a, b) => a.hero_order - b.hero_order);
+  
   onMount(() => {
-    // Rotate hero images every 5 seconds
     const interval = setInterval(() => {
-      if (heroImages.length > 1) {
-        currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+      if (filteredHeroImages.length > 1) {
+        currentHeroIndex = (currentHeroIndex + 1) % filteredHeroImages.length;
       }
     }, 5000);
-  
     return () => {
       clearInterval(interval);
     };
@@ -30,16 +30,14 @@
     return `€ ${num}`;
   }
   
-  // Dispatch event to open the popup (the parent can catch this and call imagesPopup.open())
   function viewAllImages() {
     dispatch('openImagesPopup', { startIndex: currentHeroIndex });
   }
 </script>
   
 <section class="listing-hero">
-  <!-- Slideshow images -->
   <div class="listing-hero-images">
-    {#each heroImages as image, i}
+    {#each filteredHeroImages as image, i}
       <img
         src={getImageUrl(image.file_path)}
         alt={"Hero image " + i}
@@ -67,7 +65,7 @@
       </div>
     </div>
   
-    <!-- Middle block: data points (bedrooms, bathrooms, living space, energy) -->
+    <!-- Middle block: data points -->
     <div class="listing-hero-data">
       <div class="listing-hero-data-point">
         <h6>Slaapkamers</h6>
@@ -102,13 +100,11 @@
       </div>
     </div>
   
-    <!-- Scroll prompt -->
+    <!-- Scroll prompt & View All Images button -->
     <div class="scroll-prompt">
       <img src="/visuals/icons/mouse-icon.svg" alt="mouse icon">
       <p>SCROL VOOR MEER</p>
     </div>
-  
-    <!-- Button to view all images -->
     <div class="main-button" id="view-listing-images" on:click={viewAllImages}>
       <h6>Alle foto's ({heroImages.length})</h6>
     </div>
@@ -116,7 +112,6 @@
 </section>
   
 <style>
-  /* (Your existing CSS remains unchanged) */
   .listing-hero {
     margin-top: 0;
     position: relative;
@@ -260,6 +255,7 @@
   .main-button h6 {
     font-size: 18px;
   }
+  /* Mobile: revert to old hero mobile design */
   @media (max-width: 768px) {
     .listing-hero {
       height: 60vh;
@@ -269,13 +265,18 @@
       width: auto;
     }
     .listing-hero-container {
-      height: auto;
+      width: 100%;
+      height: 15vh;
       margin-top: 75vh;
+      position: absolute;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      z-index: 3;
+      background-color: #E6E5E1;
       gap: 7px;
       padding: 2%;
-      border-radius: 0;
     }
     .listing-hero-details,
     .listing-hero-data {

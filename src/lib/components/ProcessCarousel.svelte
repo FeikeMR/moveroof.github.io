@@ -185,7 +185,7 @@
           </p>
           <p class="detail">
             Pssst... die info is geen geheimpje, maar kan je gewoon
-            <u><a href="/svelte/verkoop-begeleiding.html">hier</a></u> vinden.
+            <u><a href="/verkoop-begeleiding">hier</a></u> vinden.
           </p>
           <div class="dots">
             <div class="dot {currentSlide === 0 ? 'active' : ''}" on:click={() => goToDot(0)}></div>

@@ -3,7 +3,7 @@
     {
       question: "Komt mijn woning op Funda?",
       answer:
-        "Jazeker. We plaatsen jou woning direct op Funda na aanvraag. Fun fact: MoveRoof is een van de weinige (enige?) ongebonden makelaars op Funda.",
+        "Jazeker. We plaatsen jou woning direct op Funda na aanvraag. Fun fact: MoveRoof is een van de weinige ongebonden makelaars op Funda.",
       open: false
     },
     {
@@ -27,7 +27,7 @@
     {
       question: "Wat is een ongebonden makelaar?",
       answer:
-        "MoveRoof is een ongebonden makelaar, dit betekent dat wij niet zijn aangesloten bij een branche vereniging zoals bijv. de NVM. Dit is een bewuste keuze geweest om onafhankelijk enkel en alleen in het voordeel van de consument te kunnen handelen.",
+        "MoveRoof is een ongebonden makelaar, dit betekent dat wij niet zijn aangesloten bij een branche vereniging zoals de NVM, VBO of VastgoedPro. Dit is een bewuste keuze geweest om onafhankelijk enkel en alleen in het voordeel van de consument te kunnen handelen.",
       open: false
     },
     {

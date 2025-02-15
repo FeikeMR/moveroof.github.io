@@ -13,6 +13,9 @@
   }
 </script>
 
+<svelte:head>
+  <title>Aanbod - MoveRoof</title>
+</svelte:head>
 
 <section id="overview-topbar">
   <div id="topbar-row">
