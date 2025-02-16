@@ -179,7 +179,7 @@
           <h4 class="secondary">Woning aanmelden</h4>
           <p>
             Na het selecteren en aanvragen van een pakket nemen wij de woning op
-            voor een pagina op MoveRoof.com en een advertentie op Funda. We
+            voor een pagina op MoveRoof.com. We
             zullen je ook wijzen op onze informatiebronnen waar je allerlei
             praktische informatie kan vinden.
           </p>
