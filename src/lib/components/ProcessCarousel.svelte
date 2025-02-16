@@ -217,10 +217,7 @@
           <h5>Verkopen via MoveRoof</h5>
           <h4 class="secondary">Jouw woning online</h4>
           <p>
-            Wij zorgen dat jouw woning binnen 1 dag op onze website staat en zo
-            snel mogelijk op Funda te zien is, hier zit aan de kant van Funda
-            een vertraging van 3 werkdagen. Let hierbij op de 2 verschillende
-            advertenties waarbij Premium advertenties vaak meer opvallen.
+            Wij zorgen dat jouw woning binnen 1 dag op onze website waarna we samen de woning zullen promoten via andere sociale media kanalen.
           </p>
           <div class="dots">
             <div class="dot {currentSlide === 0 ? 'active' : ''}" on:click={() => goToDot(0)}></div>
@@ -252,7 +249,7 @@
           <h5>Verkopen via MoveRoof</h5>
           <h4 class="secondary">Bezichtigingen</h4>
           <p>
-            Zodra er aanvragen via onze website of Funda binnenkomen, komen
+            Zodra er aanvragen via onze website binnenkomen, komen
             deze ook direct bij jou binnen. Ondanks dat we begeleidende
             artikelen hebben kunnen wij je altijd helpen als je vastloopt in
             contact met een potentiële koper. Ook voor bezichtigingen geven
@@ -288,9 +285,7 @@
           <h5>Verkopen via MoveRoof</h5>
           <h4 class="secondary">Onderhandelen &amp; -tekenen</h4>
           <p>
-            Naast onze onderhandel tips en overeenkomst templates staan wij
-            altijd voor je klaar om te assisteren waar nodig bij deze 2
-            belangrijke onderdelen van het proces.
+            MoveRoof neemt de onderhandelingen over en zal, samen met jou, toewerken naar de gewenste verkoopprijs. Ook stellen wij de juridische documenten voor je op.
           </p>
           <div class="dots">
             <div class="dot {currentSlide === 0 ? 'active' : ''}" on:click={() => goToDot(0)}></div>

@@ -3,7 +3,7 @@
     {
       question: "Komt mijn woning op Funda?",
       answer:
-        "Jazeker. We plaatsen jou woning direct op Funda na aanvraag. Fun fact: MoveRoof is een van de weinige ongebonden makelaars op Funda.",
+        "Nee, MoveRoof is nog in aanvraag procedure bij Funda voor een account. Hierover volgt meer informatie wanneer we mogen adverteren.",
       open: false
     },
     {
@@ -22,12 +22,6 @@
       question: "Hoe snel kan ik mijn woning verkopen?",
       answer:
         "Sneller dan bij traditionele makelaars, maar dit blijft altijd afhankelijk van marktvraag, hier kunnen wij samen naast goede marketing niet veel aan veranderen.",
-      open: false
-    },
-    {
-      question: "Wat is een ongebonden makelaar?",
-      answer:
-        "MoveRoof is een ongebonden makelaar, dit betekent dat wij niet zijn aangesloten bij een branche vereniging zoals de NVM, VBO of VastgoedPro. Dit is een bewuste keuze geweest om onafhankelijk enkel en alleen in het voordeel van de consument te kunnen handelen.",
       open: false
     },
     {

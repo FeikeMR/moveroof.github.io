@@ -400,9 +400,9 @@
     <!-- Starter -->
     <div class="pkg" id="Starter">
       <h2>Starter</h2>
-      <p class="pkg-desc">Doorstart pakket voor bestaande verkopers.</p>
+      <p class="pkg-desc">Meeste zelfstandigheid voor jou verkoop.</p>
       <div class="pkg-price">
-        <p class="price">€395,-</p>
+        <p class="price">€195,-</p>
         <img class="pkg-img" src="/visuals/general/packagevis-starter.svg" alt="Starter" />
       </div>
       <SecondaryButton on:click={() => choosePackage('Starter')}>
@@ -415,7 +415,7 @@
       <h2>Premium</h2>
       <p class="pkg-desc">Bespaar duizenden euro's & behoudt de zelfstandigheid.</p>
       <div class="pkg-price">
-        <p class="price">€850,-</p>
+        <p class="price">550,-</p>
         <img class="pkg-img" src="/visuals/general/packagevis-premium.svg" alt="Premium" />
       </div>
       <SecondaryButton on:click={() => choosePackage('Premium')}>
@@ -425,9 +425,9 @@
     <!-- All-In -->
     <div class="pkg" id="All-In">
       <h2>All-In</h2>
-      <p class="pkg-desc">Forse besparing & ontzorging van alle formaliteiten.</p>
+      <p class="pkg-desc">Forse besparing & sterke woningpresentatie.</p>
       <div class="pkg-price">
-        <p class="price">€1.050,-</p>
+        <p class="price">€750,-</p>
         <img class="pkg-img" src="/visuals/general/packagevis-allin.svg" alt="All-In" />
       </div>
       <SecondaryButton on:click={() => choosePackage('All-In')}>
@@ -442,97 +442,82 @@
       <div class="service-header">Wat zit er in het pakket?</div>
     </div>
     <div class="service">
-      <div class="service-name">Verkooptips &amp; -informatie</div>
+      <div class="service-name">Verkooptips &amp; officiële documenten</div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
     </div>
     <div class="service">
-      <div class="service-name">Templates officiële documenten</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
+      <div class="service-name">Opname door makelaar</div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Funda advertentie met foto's</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Advertentietekst kosteloos aanpassen</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Open huis vermelding op Funda</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Funda statistieken</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Onderhandel begeleiding</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Verkoopovereenkomst templates &amp; begeleiding</div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="non-check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
     </div>
     <div class="service">
       <div class="service-name">Advies verkoopprijs</div>
-      <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="non-check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
     </div>
     <div class="service">
-      <div class="service-name">Wij schrijven de advertentietekst</div>
-      <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="non-check"></div>
+      <div class="service-name">Advies verkoopstrategie</div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+    </div>
+    <div class="service">
+      <div class="service-name">Digitale brochure</div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+    </div>
+    <div class="service">
+      <div class="service-name">Onderhandelingen door makelaar</div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+    </div>
+    <div class="service">
+      <div class="service-name">Wij stellen de overeenkomsten op</div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+    </div>
+    <div class="service">
+      <div class="service-name">Helpdesk</div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
     </div>
     <div class="service">
       <div class="service-name">NEN2580 meetrapport</div>
+      <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="non-check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+    </div>
+    <div class="service">
+      <div class="service-name">Professionele plattegronden</div>
+      <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="non-check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
+    </div>
+    <div class="service">
+      <div class="service-name">Kadastrale gegevens</div>
       <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
     </div>
     <div class="service">
-      <div class="service-name">Professionele plattegrond</div>
-      <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-      <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="service">
-      <div class="service-name">Video plaatsing op Funda</div>
+      <div class="service-name">Video opname</div>
       <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
     </div>
     <div class="service">
-      <div class="service-name">Wij stellen de verkoopovereenkomst op</div>
+      <div class="service-name">3D plattegronden</div>
       <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/non-check-icon.svg" alt="check"></div>
       <div class="service-icon"><img src="/visuals/icons/check-icon.svg" alt="check"></div>
-    </div>
-    <div class="services-note">
-      <h4 class="secondary">Services notitie</h4>
-      <p>
-        Bij internetmakelaars staan services vaak dubbel vermeld (om het pakket groter te laten lijken) en betaal je voor Kadastrale gegevens of voor het doorsturen van berichten terwijl deze 2 'services' gratis zijn.
-      </p>
-      <p>
-        MoveRoof is zonder trucjes. Bovenstaand zijn enkel zinvolle services die niet standaard gratis zijn.
-      </p>
     </div>
   </div>
 </section>
@@ -553,9 +538,9 @@
     <!-- Starter -->
     <div class="pkg-mobile" data-package-index="0">
       <h3>Starter</h3>
-      <p class="pkg-desc">Doorstart pakket voor bestaande verkopers.</p>
+      <p class="pkg-desc">Meeste zelfstandigheid voor jou verkoop.</p>
       <div class="pkg-price">
-        <p class="price">€395,-</p>
+        <p class="price">€195,-</p>
         <img class="pkg-img" src="/visuals/general/packagevis-starter.svg" alt="Starter" />
       </div>
       <SecondaryButton on:click={() => choosePackage('Starter')}>
@@ -568,7 +553,7 @@
       <h3>Premium</h3>
       <p class="pkg-desc">Bespaar duizenden euro's &amp; behoudt de zelfstandigheid.</p>
       <div class="pkg-price">
-        <p class="price">€850,-</p>
+        <p class="price">€550,-</p>
         <img class="pkg-img" src="/visuals/general/packagevis-premium.svg" alt="Premium" />
       </div>
       <SecondaryButton on:click={() => choosePackage('Premium')}>
@@ -578,9 +563,9 @@
     <!-- All-In -->
     <div class="pkg-mobile" data-package-index="2">
       <h3>All-In</h3>
-      <p class="pkg-desc">Forse besparing &amp; ontzorging van alle formaliteiten.</p>
+      <p class="pkg-desc">Forse besparing & sterke woningpresentatie.</p>
       <div class="pkg-price">
-        <p class="price">€1.050,-</p>
+        <p class="price">€750,-</p>
         <img class="pkg-img" src="/visuals/general/packagevis-allin.svg" alt="All-In" />
       </div>
       <SecondaryButton on:click={() => choosePackage('All-In')}>
@@ -601,14 +586,14 @@
     <!-- Starter Services -->
     <div class="pkg-services" data-package-services="0" style="display: block;">
       <ul>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Verkooptips &amp; -informatie</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Templates officiële documenten</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Funda advertentie met foto's</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Advertentietekst kosteloos aanpassen</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Open huis vermelding op Funda</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Funda statistieken</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Onderhandel begeleiding</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Verkoopovereenkomst templates &amp; begeleiding</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Verkooptips &amp; officiële documenten</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Opname door makelaar</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Advies verkoopprijs</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Advies verkoopstrategie</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Digitale brochure</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Onderhandelingen door makelaar</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Wij stellen de overeenkomsten op</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Helpdesk</li>
       </ul>
     </div>
     <!-- Premium Services -->
@@ -618,10 +603,8 @@
         <p>Alles van Starter</p>
       </div>
       <ul>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Advies verkoopprijs</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Wij schrijven de advertentietekst</li>
         <li><img src="/visuals/icons/check-icon.svg" alt="check"> NEN2580 meetrapport</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Professionele plattegrond</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Professionele plattegronden</li>
       </ul>
     </div>
     <!-- All-In Services -->
@@ -631,18 +614,9 @@
         <p>Alles van Premium</p>
       </div>
       <ul>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Video plaatsing op Funda</li>
-        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Wij stellen de verkoopovereenkomst op</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> Video opname</li>
+        <li><img src="/visuals/icons/check-icon.svg" alt="check"> 3D plattegronden</li>
       </ul>
-    </div>
-    <div class="services-note">
-      <h4 class="secondary">Services notitie</h4>
-      <p>
-        Bij internetmakelaars staan services vaak dubbel vermeld (om het pakket groter te laten lijken) en betaal je voor Kadastrale gegevens of voor het doorsturen van berichten terwijl deze 2 'services' gratis zijn.
-      </p>
-      <p>
-        MoveRoof is zonder trucjes. Bovenstaand zijn zinvolle services die niet standaard gratis zijn.
-      </p>
     </div>
   </div>
 </section>

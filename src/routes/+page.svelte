@@ -15,6 +15,37 @@
   <title>Home - MoveRoof</title>
 </svelte:head>
 
+<section class="hero-container">
+  <div class="hero-text">
+    <h1 class="secondary">Jouw huis. Jouw deal.</h1>
+    <p>
+      (Ver)kopen via MoveRoof is transparant en eenvoudig. Pak de controle en zelfstandigheid en verkoop via MoveRoof
+    </p>
+    <p>
+      Geen hoge variabele kosten, maar direct contact met kopers en een heldere, eerlijke aanpak met een vaste prijs. 
+    </p>
+    <p><b>Eerlijk vastgoed, zoals het hoort.</b></p>
+    <div class="button-row">
+      <SecondaryButton id="hero-button" on:click={() => goto('/zelf-verkopen')}>
+        Zelf verkopen
+      </SecondaryButton>
+      <SecondaryButton id="hero-button" on:click={() => goto('/aanbod')}>
+        Bekijk ons aanbod
+      </SecondaryButton>
+    </div>
+  </div>
+  <img
+    src="/visuals/general/phone-3dmockup.svg"
+    alt="house and phone illustration"
+  />
+</section>
+
+<PackagesOverview on:choosePackage={onChoosePackage} />
+
+<ProcessCarousel />
+
+<FAQ />
+
 <style>
   /* ================= HERO SECTION CSS ================= */
   .hero-container {
@@ -102,35 +133,3 @@
     }
   }
 </style>
-
-<section class="hero-container">
-  <div class="hero-text">
-    <h1 class="secondary">Jouw huis. Jouw deal.</h1>
-    <p>
-      (Ver)kopen via MoveRoof is transparant en eenvoudig. Als <b>onafhankelijke makelaar</b> brengen we de verandering die de markt écht nodig heeft.
-    </p>
-    <p>
-      Geen hoge kosten of stiekeme handjeklap, maar direct contact met kopers en een heldere, eerlijke aanpak. 
-      Wij zetten ons in om echt het verschil te maken — doe je mee?
-    </p>
-    <p><b>Eerlijk vastgoed, zoals het hoort.</b></p>
-    <div class="button-row">
-      <SecondaryButton id="hero-button" on:click={() => goto('/zelf-verkopen')}>
-        Zelf verkopen
-      </SecondaryButton>
-      <SecondaryButton id="hero-button" on:click={() => goto('/aanbod')}>
-        Bekijk ons aanbod
-      </SecondaryButton>
-    </div>
-  </div>
-  <img
-    src="/visuals/general/phone-3dmockup.svg"
-    alt="house and phone illustration"
-  />
-</section>
-
-<PackagesOverview on:choosePackage={onChoosePackage} />
-
-<ProcessCarousel />
-
-<FAQ />

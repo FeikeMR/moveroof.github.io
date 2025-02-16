@@ -314,23 +314,23 @@
     <div class="package">
       <img class="pkg-image" src="/visuals/general/packagevis-starter.svg" alt="Starter">
       <h3 class="secondary">Starter</h3>
-      <p class="pkg-desc">Doorstart pakket voor bestaande verkopers.</p>
+      <p class="pkg-desc">Meeste zelfstandigheid voor jou verkoop.</p>
       <div class="pkg-price">
-        <h4>€395,-</h4>
+        <h4>€195,-</h4>
         <p class="price-detail">Eenmalig</p>
       </div>
       <div class="pkg-content">
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Funda advertentie</p>
+          <p>Opname door makelaar</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Template officiële docs</p>
+          <p>Wij doen de onderhandelingen</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Onderhandel begeleiding</p>
+          <p>Wij stellen de overeenkomsten op</p>
         </div>
         <div class="plus-row">
           <img src="/visuals/icons/plus-icon.svg" alt="Plus">
@@ -349,7 +349,7 @@
       <h3 class="secondary">Premium</h3>
       <p class="pkg-desc">Bespaar duizenden euro's & behoudt de zelfstandigheid.</p>
       <div class="pkg-price">
-        <h4>€850,-</h4>
+        <h4>€550,-</h4>
         <p class="price-detail">Eenmalig</p>
       </div>
       <div class="services">
@@ -359,11 +359,11 @@
       <div class="pkg-content">
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Advies verkoopprijs</p>
+          <p>NEN2580 meetrapport</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>NEN2580 meetrapport</p>
+          <p>Professionele plattegronden</p>
         </div>
         <div class="plus-row">
           <img src="/visuals/icons/plus-icon.svg" alt="Plus">
@@ -379,9 +379,9 @@
     <div class="package">
       <img class="pkg-image" src="/visuals/general/packagevis-allin.svg" alt="All-In">
       <h3 class="secondary">All-In</h3>
-      <p class="pkg-desc">Forse besparing & ontzorging van alle formaliteiten.</p>
+      <p class="pkg-desc">Forse besparing & sterke woningpresentatie.</p>
       <div class="pkg-price">
-        <h4>€1.050,-</h4>
+        <h4>750,-</h4>
         <p class="price-detail">Eenmalig</p>
       </div>
       <div class="services">
@@ -391,11 +391,11 @@
       <div class="pkg-content">
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Video plaatsing Funda</p>
+          <p>Video opname</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Jouw overeenkomst opstellen</p>
+          <p>3D plattegronden</p>
         </div>
       </div>
       <SecondaryButton on:click={() => choosePackage('All-In')}>
@@ -422,24 +422,24 @@
     <!-- Starter Package -->
     <div class="pkg-mobile" data-package-index="0">
       <img class="pkg-image" src="/visuals/general/packagevis-starter.svg" alt="Starter">
-      <h3>Starter</h3>
-      <p class="pkg-desc">Doorstart pakket voor bestaande verkopers.</p>
+      <h3 class="secondary">Starter</h3>
+      <p class="pkg-desc">Meeste zelfstandigheid voor jou verkoop.</p>
       <div class="pkg-price">
-        <h4>€395,-</h4>
+        <h4>€195,-</h4>
         <p class="price-detail">Eenmalig</p>
       </div>
       <div class="pkg-content">
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Funda advertentie</p>
+          <p>Opname door makelaar</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Template officiële docs</p>
+          <p>Wij doen de onderhandelingen</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Onderhandel begeleiding</p>
+          <p>Wij stellen de overeenkomsten op</p>
         </div>
         <div class="plus-row">
           <img src="/visuals/icons/plus-icon.svg" alt="Plus">
@@ -455,10 +455,10 @@
     <div class="pkg-mobile premium" data-package-index="1">
       <div class="most-chosen">Meest gekozen</div>
       <img class="pkg-image" src="/visuals/general/packagevis-premium.svg" alt="Premium">
-      <h3>Premium</h3>
+      <h3 class="secondary">Premium</h3>
       <p class="pkg-desc">Bespaar duizenden euro's & behoudt de zelfstandigheid.</p>
       <div class="pkg-price">
-        <h4>€850,-</h4>
+        <h4>€550,-</h4>
         <p class="price-detail">Eenmalig</p>
       </div>
       <div class="services">
@@ -468,11 +468,11 @@
       <div class="pkg-content">
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Advies verkoopprijs</p>
+          <p>NEN2580 meetrapport</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>NEN2580 meetrapport</p>
+          <p>Professionele plattegronden</p>
         </div>
         <div class="plus-row">
           <img src="/visuals/icons/plus-icon.svg" alt="Plus">
@@ -487,10 +487,10 @@
     <!-- All-In Package -->
     <div class="pkg-mobile" data-package-index="2">
       <img class="pkg-image" src="/visuals/general/packagevis-allin.svg" alt="All-In">
-      <h3>All-In</h3>
-      <p class="pkg-desc">Forse besparing & ontzorging van alle formaliteiten.</p>
+      <h3 class="secondary">All-In</h3>
+      <p class="pkg-desc">Forse besparing & sterke woningpresentatie.</p>
       <div class="pkg-price">
-        <h4>€1.050,-</h4>
+        <h4>750,-</h4>
         <p class="price-detail">Eenmalig</p>
       </div>
       <div class="services">
@@ -500,11 +500,11 @@
       <div class="pkg-content">
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Video plaatsing Funda</p>
+          <p>Video opname</p>
         </div>
         <div class="pkg-row">
           <img src="/visuals/icons/check-icon.svg" alt="check">
-          <p>Jouw overeenkomst opstellen</p>
+          <p>3D plattegronden</p>
         </div>
       </div>
       <SecondaryButton on:click={() => choosePackage('All-In')}>

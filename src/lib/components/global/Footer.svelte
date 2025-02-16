@@ -173,14 +173,6 @@
       />
       <p id="slogan">Jouw huis. jouw deal</p>
     </div>
-    <div class="icon-row">
-      <p id="agent-type">Ongebonden makelaar</p>
-      <img
-        src="/visuals/icons/funda-icon.png"
-        alt="Funda logo icon"
-        id="icon-funda"
-      />
-    </div>
   </div>
 
   <!-- Divider -->

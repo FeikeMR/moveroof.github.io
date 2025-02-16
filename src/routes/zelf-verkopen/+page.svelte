@@ -47,12 +47,12 @@
   <div class="why-moveroof-container">
     <h2>Waarom kiezen voor MoveRoof?</h2>
     <p>
-      MoveRoof is een van de weinige ongebonden makelaars in Nederland. Dit betekent dat wij niet
-      de belangen van investeerders of andere "belangrijke" mensen te balanceren met klanten
+      MoveRoof is een onafhankelijke makelaar. Dit betekent dat wij niet
+      de belangen van investeerders hoeven te balanceren met klanten
       belangen, maar ons 'gewoon' volledig op de klant kunnen focussen.
     </p>
     <p>
-      Door de opbouw van MoveRoof - 1 persoon met een full-time baan ernaast - gaat elke verdiende
+      Door de opbouw van MoveRoof - 1 persoon met een part-time baan ernaast - gaat elke verdiende
       euro regelrecht naar de verbetering van ons product, de service en ons platform.
     </p>
     <p>Meer weten over waarom MoveRoof uniek is?</p>

@@ -98,13 +98,12 @@
         alt="Foto van Feike Leemkuil, allesdoener van MoveRoof"
       />
       <div class="founder-text">
-        <p>
-          Aangezien MoveRoof flink goedkoper is, kan dit twijfels oproepen. 
+        <p> 
           Hier een korte toelichting van wie er achter MoveRoof zit.
         </p>
         <br />
         <p>
-          Mijn naam is Feike Leemkuil en ik werk fulltime als Programma Manager bij ANVA. 
+          Mijn naam is Feike Leemkuil en ik werk part-time als Programma Manager bij ANVA. 
           Hier verdien ik het inkomen waarmee ik onze rekeningen kan betalen.
         </p>
         <br />
