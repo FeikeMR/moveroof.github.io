@@ -1,13 +1,19 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require('express');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-const path = require('path');
-const cors = require('cors');
-// NEW imports
-const rateLimit = require('express-rate-limit');
-const validator = require('validator');
+import express from 'express';
+import nodemailer from 'nodemailer';
+import bodyParser from 'body-parser';
+import path from 'path';
+import cors from 'cors';
+import rateLimit from 'express-rate-limit';
+import validator from 'validator';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// Re-create __filename and __dirname since they're not available in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -31,25 +37,28 @@ const allowedOrigins = [
   'http://localhost:5173'
 ];
 
-app.use(cors({
-  origin: (origin, callback) => {
-    console.log('CORS got origin:', origin); // Debug logging
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`Not allowed by CORS for origin: ${origin}`));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      console.log('CORS got origin:', origin);
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Not allowed by CORS for origin: ${origin}`));
+      }
     }
-  }
-}));
+  })
+);
 
 // Serve static files (if needed)
 app.use(express.static(path.join(__dirname)));
 
-// Rate limiter: for example, max 10 requests per 15 min per IP
+// Rate limiter: for example, max 10 requests per 30 minutes per IP
 const contactFormLimiter = rateLimit({
   windowMs: 30 * 60 * 1000,
   max: 10,
-  message: 'Te veel aanvragen vanaf dit IP. Probeer het opnieuw in 30 minuten.'
+  message:
+    'Te veel aanvragen vanaf dit IP. Probeer het opnieuw in 30 minuten.'
 });
 
 // Basic test route
@@ -67,11 +76,13 @@ const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+    pass: process.env.EMAIL_PASS
+  }
 });
 
-//   1) FEEDBACK FORM: POST /submit-feedback
+// ──────────────────────────────────────────────
+//          FEEDBACK FORM: POST /submit-feedback
+// ──────────────────────────────────────────────
 app.post('/submit-feedback', contactFormLimiter, (req, res) => {
   const { naam, email, bericht } = req.body;
   console.log('Feedback request received:', req.body);
@@ -89,10 +100,11 @@ app.post('/submit-feedback', contactFormLimiter, (req, res) => {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: `Feedback from ${naam}`,
-    text: `Naam: ${naam}\nEmail: ${email || 'Not provided'}\nFeedback: ${cleanedMessage || 'No message'}`,
+    text: `Naam: ${naam}\nEmail: ${email || 'Not provided'}\nFeedback: ${cleanedMessage || 'No message'}`
   };
 
-  transporter.sendMail(mailOptions)
+  transporter
+    .sendMail(mailOptions)
     .then(() => {
       console.log('Feedback email sent successfully');
       res.status(200).json({ message: 'Feedback submitted successfully' });
@@ -103,20 +115,19 @@ app.post('/submit-feedback', contactFormLimiter, (req, res) => {
     });
 });
 
-// Listing request form POST
+// ──────────────────────────────────────────────
+//       Listing Request Form: POST /submit-listing-request
+// ──────────────────────────────────────────────
 app.post('/submit-listing-request', contactFormLimiter, (req, res) => {
   const { naam, email, telefoon, adres } = req.body;
-  console.log('Request listing request received:', req.body);
+  console.log('Listing request received:', req.body);
 
-  // Basic validation
   if (!naam || typeof naam !== 'string' || naam.trim().length < 2) {
     return res.status(400).json({ error: 'Voer een geldige naam in.' });
   }
-  // Email is required in form
   if (!email || !validator.isEmail(email)) {
     return res.status(400).json({ error: 'Voer een geldig e-mailadres in.' });
   }
-  // Adres is required in form
   if (!adres || typeof adres !== 'string' || adres.trim().length < 5) {
     return res.status(400).json({ error: 'Voer een geldig adres in.' });
   }
@@ -125,10 +136,11 @@ app.post('/submit-listing-request', contactFormLimiter, (req, res) => {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: `Listing Request from ${naam}`,
-    text: `Naam: ${naam}\nEmail: ${email}\nTelefoon: ${telefoon || 'Not provided'}\nAdres: ${adres}`,
+    text: `Naam: ${naam}\nEmail: ${email}\nTelefoon: ${telefoon || 'Not provided'}\nAdres: ${adres}`
   };
 
-  transporter.sendMail(mailOptions)
+  transporter
+    .sendMail(mailOptions)
     .then(() => {
       console.log('Listing request email sent successfully');
       res.status(200).json({ message: 'Listing request submitted successfully' });
@@ -139,16 +151,16 @@ app.post('/submit-listing-request', contactFormLimiter, (req, res) => {
     });
 });
 
-// Listing interest form POST
+// ──────────────────────────────────────────────
+//      Listing Interest Form: POST /submit-interest
+// ──────────────────────────────────────────────
 app.post('/submit-interest', contactFormLimiter, (req, res) => {
   const { naam, email, telefoon, bericht, listingInfo } = req.body;
   console.log('Listing interest inquiry received:', req.body);
 
-  // Basic validation
   if (!naam || typeof naam !== 'string' || naam.trim().length < 2) {
     return res.status(400).json({ error: 'Voer een geldige naam in.' });
   }
-  // Email is required
   if (!email || !validator.isEmail(email)) {
     return res.status(400).json({ error: 'Voer een geldig e-mailadres in.' });
   }
@@ -164,10 +176,11 @@ app.post('/submit-interest', contactFormLimiter, (req, res) => {
       Email: ${email}
       Telefoon: ${telefoon || 'Not provided'}
       Bericht: ${cleanedMessage || 'No message'}
-    `,
+    `
   };
 
-  transporter.sendMail(mailOptions)
+  transporter
+    .sendMail(mailOptions)
     .then(() => {
       console.log('Listing interest email sent successfully');
       res.status(200).json({ message: 'Listing interest inquiry submitted successfully' });
@@ -179,7 +192,7 @@ app.post('/submit-interest', contactFormLimiter, (req, res) => {
 });
 
 // ──────────────────────────────────────────────
-//            START SERVER
+//                START SERVER
 // ──────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
