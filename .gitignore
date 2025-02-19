@@ -1,0 +1,29 @@
+# ---------------------------
+# Root-level settings (for NodeMailer)
+# ---------------------------
+.env
+
+# ---------------------------
+# Svelte project ignores
+# ---------------------------
+
+# Ignore the node_modules folder ONLY in the svelte subfolder
+/svelte/node_modules/
+
+# Svelte output/build directories
+/svelte/.svelte-kit
+/svelte/build
+/svelte/.output
+/svelte/.vercel
+/svelte/.netlify
+/svelte/.wrangler
+
+# OS-specific files (common to all folders)
+.DS_Store
+Thumbs.db
+
+# Environment files in the svelte folder
+/svelte/.env
+/svelte/.env.*
+!/svelte/.env.example
+!/svelte/.env.test
