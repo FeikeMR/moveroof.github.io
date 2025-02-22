@@ -12,7 +12,7 @@
 
 # Svelte output/build directories
 /svelte/.svelte-kit
-/svelte/build
+#/svelte/build
 /svelte/.output
 /svelte/.vercel
 /svelte/.netlify
