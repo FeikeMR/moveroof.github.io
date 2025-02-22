@@ -1034,8 +1034,10 @@ function handle_event_propagation(event) {
       current_target.host || null;
       try {
         var delegated = current_target["__" + event_name];
-        if (delegated !== void 0 && !/** @type {any} */
-        current_target.disabled) {
+        if (delegated !== void 0 && (!/** @type {any} */
+        current_target.disabled || // DOM could've been updated already by the time this is reached, so we check this as well
+        // -> the target could not have been disabled because it emits the event in the first place
+        event.target === current_target)) {
           if (is_array(delegated)) {
             var [fn, ...data] = delegated;
             fn.apply(current_target, [event, ...data]);
@@ -1480,7 +1482,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1799boy"
+  version_hash: "1xxpuc8"
 };
 async function get_hooks() {
   let handle;
@@ -1500,9 +1502,9 @@ async function get_hooks() {
 }
 export {
   BROWSER as B,
-  app_dir as a,
+  assets as a,
   base as b,
-  assets as c,
+  app_dir as c,
   read_implementation as d,
   options as e,
   set_private_env as f,
