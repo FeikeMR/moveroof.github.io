@@ -6,8 +6,8 @@ export default {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: 'index.html', // Serve index.html for dynamic routes
-      strict: false         // Allow dynamic routes without erroring out
+      fallback: 'index.html',
+      strict: false
     })
   },
   preprocess: [vitePreprocess()]
